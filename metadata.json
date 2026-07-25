@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: Northern HeatEx Engineering Suite (NHES)",
+  "description": "Enterprise AI-powered industrial thermal \u0026 mechanical heat exchanger engineering platform, ASME/TEMA CAD engine, fabrication planner, and SaaS suite for Northern HeatEx Corporation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

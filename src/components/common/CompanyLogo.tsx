@@ -29,20 +29,20 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
 
   // Font size classes for Title
   const titleTextClasses = {
-    xs: "text-xs font-black tracking-tight",
-    sm: "text-sm font-black tracking-tight",
-    md: "text-base sm:text-xl font-black tracking-tight",
-    lg: "text-2xl sm:text-3xl font-black tracking-tight",
-    xl: "text-3xl sm:text-4xl font-black tracking-tight",
+    xs: "text-xs font-black tracking-wider",
+    sm: "text-sm font-black tracking-wider",
+    md: "text-base sm:text-lg font-black tracking-wider",
+    lg: "text-xl sm:text-2xl font-black tracking-wider",
+    xl: "text-2xl sm:text-3xl font-black tracking-wider",
   }[size];
 
   // Font size classes for CORPORATION
   const corpTextClasses = {
-    xs: "text-[7px] font-black tracking-[0.16em]",
-    sm: "text-[8.5px] font-black tracking-[0.2em]",
-    md: "text-[9.5px] sm:text-[11px] font-black tracking-[0.26em]",
-    lg: "text-xs sm:text-sm font-black tracking-[0.3em]",
-    xl: "text-sm sm:text-base font-black tracking-[0.35em]",
+    xs: "text-[7px] font-bold tracking-[0.18em]",
+    sm: "text-[8.5px] font-bold tracking-[0.22em]",
+    md: "text-[9.5px] sm:text-[10.5px] font-bold tracking-[0.28em]",
+    lg: "text-xs sm:text-sm font-bold tracking-[0.32em]",
+    xl: "text-sm sm:text-base font-bold tracking-[0.38em]",
   }[size];
 
   // Accent line sizes flanking CORPORATION
@@ -138,7 +138,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
       <div className="flex flex-col justify-center">
         {/* Main Title: NORTHERN HEATEX */}
         <h2
-          className={`font-['Outfit',sans-serif] leading-none font-black tracking-tight ${titleTextClasses} ${
+          className={`font-['Orbitron',sans-serif] leading-none font-black tracking-wider uppercase ${titleTextClasses} ${
             lightBackground ? "text-[#0B1C38]" : "text-white"
           }`}
         >
@@ -149,7 +149,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
         <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
           <div className={`${lineHeights} bg-gradient-to-r from-red-600 to-red-400 shrink-0`} />
           <span
-            className={`font-['Outfit',sans-serif] uppercase text-[#0056A6] font-extrabold ${corpTextClasses} ${
+            className={`font-['Chakra_Petch',sans-serif] uppercase text-[#0056A6] font-extrabold ${corpTextClasses} ${
               !lightBackground ? "text-cyan-300" : ""
             }`}
           >
@@ -160,7 +160,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
 
         {/* Services Tagline */}
         {showSubtitle && size !== "xs" && (
-          <div className={`flex items-center gap-1 mt-0.5 sm:mt-1 font-['Outfit',sans-serif] font-bold uppercase tracking-wider ${taglineClasses} ${
+          <div className={`flex items-center gap-1 mt-0.5 sm:mt-1 font-['Chakra_Petch',sans-serif] font-bold uppercase tracking-wider ${taglineClasses} ${
             lightBackground ? "text-slate-600" : "text-slate-300"
           }`}>
             <span>HEAT EXCHANGERS</span>

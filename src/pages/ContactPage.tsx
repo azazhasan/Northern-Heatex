@@ -41,17 +41,18 @@ export const ContactPage: React.FC = () => {
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-[#0056A6] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-900 block text-sm font-sans font-bold">Haridwar Manufacturing Plant</strong>
-                <span>Shastri Nagar, Near G.G.I. College, Jwalapur, Haridwar – 249407, Uttarakhand, India</span>
+                <strong className="text-slate-900 block text-sm font-sans font-bold">Corporate Office & Works</strong>
+                <span>Northern HeatEx Corporation, Shastri Nagar, Jwalapur, Haridwar, Uttarakhand - 249407, India</span>
               </div>
             </div>
 
             <div className="flex items-start gap-3 border-t border-slate-100 pt-3">
               <Phone className="w-5 h-5 text-[#0056A6] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-slate-900 block text-sm font-sans font-bold">Engineering Hotline</strong>
+                <strong className="text-slate-900 block text-sm font-sans font-bold">Phone & Mobile</strong>
                 <span>+91 97603 62826</span>
                 <span className="block">+91 95575 65742</span>
+                <span className="block">+91 85328 23883</span>
               </div>
             </div>
 
@@ -59,7 +60,7 @@ export const ContactPage: React.FC = () => {
               <Mail className="w-5 h-5 text-[#0056A6] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block text-sm font-sans font-bold">Official Work Emails</strong>
-                <span className="block font-mono text-xs text-[#0056A6] font-bold">inquiry@northernheatex.co.in</span>
+                <span className="block font-mono text-xs text-[#0056A6] font-bold">info@northernheatex.co.in</span>
                 <span className="block font-mono text-xs">northernheatex@outlook.in</span>
               </div>
             </div>
@@ -68,7 +69,8 @@ export const ContactPage: React.FC = () => {
               <Clock className="w-5 h-5 text-[#0056A6] shrink-0 mt-0.5" />
               <div>
                 <strong className="text-slate-900 block text-sm font-sans font-bold">Operating Hours</strong>
-                <span>24 Hours / 7 Days (Emergency Outage Response)</span>
+                <span>Mon–Sat: 9:00 AM – 6:00 PM IST</span>
+                <span className="block text-emerald-600 font-bold">24/7 Emergency Outage Support Available</span>
               </div>
             </div>
           </div>

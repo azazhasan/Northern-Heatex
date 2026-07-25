@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { ShapeVisualGraphic } from "./ShapeVisualGraphics";
 import {
   Scale,
   Calculator,
@@ -822,7 +823,7 @@ Northern HeatEx Engineering Suite - Official Calculation
             </div>
           </div>
 
-          {/* STEP 2: Profile & Shape Selection */}
+          {/* STEP 2: Profile & Shape Selection with Visual Figures */}
           <div className="space-y-3">
             <label className="text-xs font-black uppercase tracking-wider font-mono text-slate-700 flex items-center gap-1.5">
               <span className="w-5 h-5 rounded-full bg-[#0056A6] text-white flex items-center justify-center text-[10px]">
@@ -831,7 +832,7 @@ Northern HeatEx Engineering Suite - Official Calculation
               Select Structural Geometry / Shape
             </label>
 
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
               {SHAPE_DEFINITIONS.map((s) => {
                 const isSelected = s.id === selectedShapeId;
                 return (
@@ -839,34 +840,42 @@ Northern HeatEx Engineering Suite - Official Calculation
                     key={s.id}
                     type="button"
                     onClick={() => setSelectedShapeId(s.id)}
-                    className={`p-2.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-2.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between overflow-hidden relative group ${
                       isSelected
                         ? "bg-[#0056A6] text-white border-[#0056A6] shadow-md ring-2 ring-blue-300"
                         : "bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200"
                     }`}
                   >
-                    <span className="text-[11px] font-bold line-clamp-1 block">{s.shortLabel}</span>
-                    <span className={`text-[9px] font-mono mt-1 ${isSelected ? "text-cyan-200" : "text-slate-400"}`}>
-                      {s.dimensions.length} Dims
-                    </span>
+                    {/* Embedded SVG Shape Thumbnail Figure */}
+                    <div className="w-full h-14 mb-1.5 flex items-center justify-center rounded-xl bg-slate-900/10 p-1 group-hover:scale-105 transition-transform">
+                      <ShapeVisualGraphic shapeId={s.id} showLabels={false} className="w-full h-full object-contain" />
+                    </div>
+
+                    <div>
+                      <span className="text-[11px] font-bold line-clamp-1 block">{s.shortLabel}</span>
+                      <span className={`text-[9px] font-mono block mt-0.5 ${isSelected ? "text-cyan-200" : "text-slate-400"}`}>
+                        {s.dimensions.length} Dimensions
+                      </span>
+                    </div>
                   </button>
                 );
               })}
             </div>
 
-            <p className="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-xl border border-slate-200/60">
-              {selectedShape.description}
+            <p className="text-[11px] text-slate-500 italic bg-slate-50 p-2.5 rounded-xl border border-slate-200/60 flex items-center gap-2">
+              <Info className="w-4 h-4 text-[#0056A6] shrink-0" />
+              <span>{selectedShape.description}</span>
             </p>
           </div>
 
-          {/* STEP 3: Dimensional Inputs & Units */}
-          <div className="space-y-3 pt-2 border-t border-slate-100">
+          {/* STEP 3: Technical Visual Graphic & Dimensional Inputs */}
+          <div className="space-y-4 pt-3 border-t border-slate-100">
             <div className="flex justify-between items-center">
               <label className="text-xs font-black uppercase tracking-wider font-mono text-slate-700 flex items-center gap-1.5">
                 <span className="w-5 h-5 rounded-full bg-[#0056A6] text-white flex items-center justify-center text-[10px]">
                   3
                 </span>
-                Enter Shape Dimensions
+                Shape Technical Figure & Dimensions
               </label>
 
               {/* Unit Toggle */}
@@ -885,6 +894,26 @@ Northern HeatEx Engineering Suite - Official Calculation
                     {u}
                   </button>
                 ))}
+              </div>
+            </div>
+
+            {/* Visual Technical Diagram Display Banner */}
+            <div className="p-4 bg-slate-900 rounded-2xl border border-slate-800 text-white relative overflow-hidden shadow-inner flex flex-col sm:flex-row items-center gap-4">
+              <div className="w-full sm:w-1/2 flex items-center justify-center p-2 bg-slate-950/60 rounded-xl border border-slate-800">
+                <ShapeVisualGraphic shapeId={selectedShapeId} showLabels={true} className="w-full h-36 object-contain" />
+              </div>
+
+              <div className="w-full sm:w-1/2 space-y-2 text-xs font-mono">
+                <div className="flex items-center gap-2 text-amber-400 font-bold border-b border-slate-800 pb-1.5">
+                  <Ruler className="w-4 h-4 text-amber-400" />
+                  <span>{selectedShape.label}</span>
+                </div>
+                <p className="text-[11px] text-slate-300 font-sans leading-relaxed">
+                  Enter exact dimensional tolerances below in <strong className="text-amber-300 font-mono">{dimUnit}</strong>. Volume and mass density will auto-calculate instantly.
+                </p>
+                <div className="text-[10px] text-slate-400 bg-slate-800/80 p-2 rounded-lg border border-slate-700/60">
+                  <strong className="text-cyan-300">Active Profile:</strong> {selectedShape.dimensions.map(d => d.key.toUpperCase()).join(" × ")}
+                </div>
               </div>
             </div>
 

@@ -179,6 +179,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {
           title: "Engineering Calculators",
           links: [
+            { label: "Baffle Plate Designer (CAD)", path: "/software/baffle-designer" },
             { label: "Thermal Design (LMTD/NTU)", path: "/software/thermal-design" },
             { label: "ASME Mechanical Studio", path: "/software/mechanical-design" },
             { label: "Material Selection Matrix", path: "/software/material-selection" },

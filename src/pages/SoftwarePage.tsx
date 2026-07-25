@@ -13,8 +13,9 @@ import { AIFailureAnalysisModule } from "../components/engineering/AIFailureAnal
 import { ProjectManagerModule } from "../components/engineering/ProjectManagerModule";
 import { TubeLayoutCanvas } from "../components/engineering/TubeLayoutCanvas";
 import { RetubingPerformanceCalculator } from "../components/engineering/RetubingPerformanceCalculator";
+import { BafflePlateDesigner } from "../components/engineering/BafflePlateDesigner";
 import { 
-  Calculator, Cpu, FileSpreadsheet, Layers, Sparkles, Download, Code, ShieldCheck, CheckCircle2, Send, FileCode, Wrench, Activity
+  Calculator, Cpu, FileSpreadsheet, Layers, Sparkles, Download, Code, ShieldCheck, CheckCircle2, Send, FileCode, Wrench, Activity, Ruler
 } from "lucide-react";
 
 export const SoftwarePage: React.FC = () => {
@@ -22,6 +23,7 @@ export const SoftwarePage: React.FC = () => {
 
   const softwareTools = [
     { slug: "thermal-design", label: "Thermal Design (LMTD/NTU)", icon: Calculator },
+    { slug: "baffle-designer", label: "Baffle Plate Designer (CAD)", icon: Ruler },
     { slug: "retubing-performance", label: "Retubing & Failure Predictor", icon: Activity },
     { slug: "mechanical-design", label: "ASME Mechanical Studio", icon: Cpu },
     { slug: "material-selection", label: "Material Alloy Matrix", icon: Layers },
@@ -88,6 +90,8 @@ export const SoftwarePage: React.FC = () => {
       {/* Render Active Tool based on URL path */}
       {subSlug === "thermal-design" || !subSlug ? (
         <ThermalDesignCalculator />
+      ) : subSlug === "baffle-designer" ? (
+        <BafflePlateDesigner />
       ) : subSlug === "retubing-performance" ? (
         <RetubingPerformanceCalculator />
       ) : subSlug === "mechanical-design" ? (

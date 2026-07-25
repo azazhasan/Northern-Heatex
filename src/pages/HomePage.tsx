@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold">
                 <Award className="w-3.5 h-3.5 text-amber-400" />
-                ESTABLISHED 1983 • HARIDWAR WORKS
+                LEGACY EST. 1996 • HARIDWAR WORKS
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
                 <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />

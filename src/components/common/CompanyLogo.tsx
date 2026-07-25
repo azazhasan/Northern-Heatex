@@ -138,7 +138,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
       <div className="flex flex-col justify-center">
         {/* Main Title: NORTHERN HEATEX */}
         <h2
-          className={`font-sans leading-none font-black ${titleTextClasses} ${
+          className={`font-['Outfit',sans-serif] leading-none font-black tracking-tight ${titleTextClasses} ${
             lightBackground ? "text-[#0B1C38]" : "text-white"
           }`}
         >
@@ -149,7 +149,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
         <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
           <div className={`${lineHeights} bg-gradient-to-r from-red-600 to-red-400 shrink-0`} />
           <span
-            className={`font-sans uppercase text-[#0056A6] font-black ${corpTextClasses} ${
+            className={`font-['Outfit',sans-serif] uppercase text-[#0056A6] font-extrabold ${corpTextClasses} ${
               !lightBackground ? "text-cyan-300" : ""
             }`}
           >
@@ -160,7 +160,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
 
         {/* Services Tagline */}
         {showSubtitle && size !== "xs" && (
-          <div className={`flex items-center gap-1 mt-0.5 sm:mt-1 font-sans font-bold uppercase tracking-wider ${taglineClasses} ${
+          <div className={`flex items-center gap-1 mt-0.5 sm:mt-1 font-['Outfit',sans-serif] font-bold uppercase tracking-wider ${taglineClasses} ${
             lightBackground ? "text-slate-600" : "text-slate-300"
           }`}>
             <span>HEAT EXCHANGERS</span>

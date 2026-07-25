@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { ShapeVisualGraphic } from "../engineering/ShapeVisualGraphics";
 import {
   Scale,
   X,
@@ -264,39 +265,59 @@ export const FloatingWeightCalculator: React.FC = () => {
                       </div>
                     )}
 
-                    {/* TAB 3: PROFILES & SHAPES OVERVIEW */}
+                    {/* TAB 3: PROFILES & SHAPES OVERVIEW WITH FIGURES */}
                     {activeTab === "profiles" && (
                       <div className="space-y-4">
                         <div className="pb-2 border-b border-slate-200">
-                          <h4 className="text-sm font-bold text-slate-900">Supported Profile Formulas</h4>
+                          <h4 className="text-sm font-bold text-slate-900">Supported Structural Profile Figures & Formulas</h4>
                           <p className="text-[11px] text-slate-500">
-                            Theoretical volume & weight calculation formulas used by the engine
+                            Theoretical volume & mass density formulas used by the engine
                           </p>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-                            <span className="font-mono font-bold text-slate-900 block">1. Rectangular Shell / Tube Plate</span>
-                            <span className="text-[11px] text-slate-600 font-mono block">V = Length × Width × Thickness</span>
-                            <p className="text-[10px] text-slate-500">Used for shell barrel unrolled sheets, baffles, and structural mounting plates.</p>
+                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                            <div className="w-full h-24 bg-slate-900 rounded-xl p-1 flex items-center justify-center">
+                              <ShapeVisualGraphic shapeId="plate_sheet" className="w-full h-full object-contain" />
+                            </div>
+                            <div>
+                              <span className="font-mono font-bold text-slate-900 block">1. Rectangular Shell / Tube Plate</span>
+                              <span className="text-[11px] text-slate-600 font-mono block">V = Length × Width × Thickness</span>
+                              <p className="text-[10px] text-slate-500 mt-0.5">Used for shell barrel unrolled sheets, baffles, and mounting plates.</p>
+                            </div>
                           </div>
 
-                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-                            <span className="font-mono font-bold text-slate-900 block">2. Seamless Tube / Pipe</span>
-                            <span className="text-[11px] text-slate-600 font-mono block">V = π/4 × (OD² - ID²) × Length</span>
-                            <p className="text-[10px] text-slate-500">Used for heat exchanger tubing (BWG wall) and shell piping (SCH schedule).</p>
+                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                            <div className="w-full h-24 bg-slate-900 rounded-xl p-1 flex items-center justify-center">
+                              <ShapeVisualGraphic shapeId="tube_pipe" className="w-full h-full object-contain" />
+                            </div>
+                            <div>
+                              <span className="font-mono font-bold text-slate-900 block">2. Seamless Tube / Pipe</span>
+                              <span className="text-[11px] text-slate-600 font-mono block">V = π/4 × (OD² - ID²) × Length</span>
+                              <p className="text-[10px] text-slate-500 mt-0.5">Used for heat exchanger tubing (BWG wall) and shell piping.</p>
+                            </div>
                           </div>
 
-                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-                            <span className="font-mono font-bold text-slate-900 block">3. Circular Disc / Tubesheet</span>
-                            <span className="text-[11px] text-slate-600 font-mono block">V = π/4 × Diameter² × Thickness</span>
-                            <p className="text-[10px] text-slate-500">Used for tubesheet blanks, blind flanges, and channel covers.</p>
+                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                            <div className="w-full h-24 bg-slate-900 rounded-xl p-1 flex items-center justify-center">
+                              <ShapeVisualGraphic shapeId="tubesheet_disc" className="w-full h-full object-contain" />
+                            </div>
+                            <div>
+                              <span className="font-mono font-bold text-slate-900 block">3. Circular Disc / Tubesheet</span>
+                              <span className="text-[11px] text-slate-600 font-mono block">V = [π/4 × OD² - N×(π/4×dh²)] × T</span>
+                              <p className="text-[10px] text-slate-500 mt-0.5">Used for tubesheet blanks, blind flanges, and channel covers.</p>
+                            </div>
                           </div>
 
-                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-                            <span className="font-mono font-bold text-slate-900 block">4. Solid Round Bar / Rod</span>
-                            <span className="text-[11px] text-slate-600 font-mono block">V = π/4 × Diameter² × Length</span>
-                            <p className="text-[10px] text-slate-500">Used for tie rods, spacer bars, and bonnet stay bolts.</p>
+                          <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                            <div className="w-full h-24 bg-slate-900 rounded-xl p-1 flex items-center justify-center">
+                              <ShapeVisualGraphic shapeId="round_bar" className="w-full h-full object-contain" />
+                            </div>
+                            <div>
+                              <span className="font-mono font-bold text-slate-900 block">4. Solid Round Bar / Rod</span>
+                              <span className="text-[11px] text-slate-600 font-mono block">V = π/4 × Diameter² × Length</span>
+                              <p className="text-[10px] text-slate-500 mt-0.5">Used for tie rods, spacer bars, and bonnet stay bolts.</p>
+                            </div>
                           </div>
                         </div>
                       </div>

@@ -17,19 +17,19 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <h4 className="text-white font-bold text-sm">
-                Designed per ASME VIII Div 1 & TEMA Class R, C, B • TPI Clearance Certified
+                Designed per ASME VIII Div 1 & TEMA Class R, C, B • ISO Certified & International Standards
               </h4>
               <p className="text-xs text-cyan-200 font-mono">
-                Parent: Noor Engineering Works (Established 1983) • Haridwar, Uttarakhand
+                Legacy: Noor Engineering Works (Est. 1996) • Northern HeatEx Corporation • Haridwar, Uttarakhand
               </p>
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-white">
             <span className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">ASME SEC VIII DIV 1</span>
-            <span className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">API 660 & API 661</span>
-            <span className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">INDIAN GST COMPLIANT</span>
+            <span className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">TEMA CLASS R / C / B</span>
+            <span className="px-3 py-1 bg-white/10 rounded-lg border border-white/20">ISO CERTIFIED</span>
             <span className="px-3 py-1 bg-amber-500/20 text-amber-300 font-bold rounded-lg border border-amber-500/40">
-              EST. 1983
+              EST. 1996
             </span>
           </div>
         </div>
@@ -44,8 +44,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
-            Northern HeatEx Corporation operates under parent company{" "}
-            <strong className="text-amber-300">Noor Engineering Works (Established 1983)</strong>, a leading supplier to India's government sector, defense establishments, and power plant PSUs for over 4 decades.
+            For over four decades, <strong className="text-amber-300">Northern HeatEx Corporation</strong> (carrying forward the legacy of Noor Engineering Works, Est. 1996) has been the trusted engineering partner for power utilities, EPC contractors, and process industries worldwide.
           </p>
 
           <div className="pt-2 text-xs font-mono text-cyan-300 flex items-center gap-2">
@@ -107,19 +106,20 @@ export const Footer: React.FC = () => {
           <ul className="space-y-3 text-xs text-slate-300">
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-              <span>Shastri Nagar, Near G.G.I. College, Jwalapur, Haridwar – 249407, Uttarakhand, India</span>
+              <span>Shastri Nagar, Jwalapur, Haridwar, Uttarakhand - 249407, India</span>
             </li>
             <li className="flex items-start gap-2">
               <Phone className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
               <div className="space-y-0.5 font-mono text-[11px]">
                 <div>+91 97603 62826</div>
                 <div>+91 95575 65742</div>
+                <div>+91 85328 23883</div>
               </div>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
               <div className="space-y-0.5 font-mono text-[11px]">
-                <div>inquiry@northernheatex.co.in</div>
+                <div>info@northernheatex.co.in</div>
                 <div>northernheatex@outlook.in</div>
               </div>
             </li>
@@ -130,7 +130,7 @@ export const Footer: React.FC = () => {
       {/* Legal & Copyright Bottom Bar */}
       <div className="bg-slate-950 py-4 border-t border-slate-800 text-xs text-slate-400 font-mono text-center">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>© {new Date().getFullYear()} Northern HeatEx Corporation • Parent: Noor Engineering Works (Est. 1983). All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Northern HeatEx Corporation • Legacy: Noor Engineering Works (Est. 1996). All Rights Reserved.</p>
           <div className="flex gap-4 text-slate-400">
             <button onClick={() => navigate("/privacy")} className="hover:text-white">Privacy Policy</button>
             <button onClick={() => navigate("/terms")} className="hover:text-white">Terms & Conditions</button>

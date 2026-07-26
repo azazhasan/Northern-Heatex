@@ -203,8 +203,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="text-slate-500 font-medium text-[11px] mt-0.5">Units Fabricated & Refurbished</div>
           </div>
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-            <div className="text-2xl font-black text-[#00A6D6]">350 Bar</div>
-            <div className="text-slate-500 font-medium text-[11px] mt-0.5">Max Pressure Rating</div>
+            <div className="text-2xl font-black text-[#00A6D6]">TEMA Coded</div>
+            <div className="text-slate-500 font-medium text-[11px] mt-0.5">ASME Coded Fabrication</div>
           </div>
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
             <div className="text-2xl font-black text-[#F7931E]">100% GST</div>

@@ -49,7 +49,7 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     role: "Director of Plant Engineering",
     company: "GE Vernova Steam Power",
     location: "Belfort, France",
-    quote: "The quality of their 5-axis CNC tubesheet drilling and orbital tube-to-tubesheet strength welding is world-class. Northern HeatEx remains our preferred partner for complex custom heat exchangers.",
+    quote: "The quality of their precision CNC tubesheet drilling and orbital tube-to-tubesheet strength welding is world-class. Northern HeatEx remains our preferred partner for complex custom heat exchangers.",
     project: "Nuclear Auxiliary Heat Exchangers",
     rating: 5,
   },

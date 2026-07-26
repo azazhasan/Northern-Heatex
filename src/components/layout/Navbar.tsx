@@ -111,7 +111,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             { label: "Wire Wound Fin Tubes", path: "/products/wire-wound-fin-tube" },
             { label: "Strip Wound Air Coolers", path: "/products/strip-wound-fin-cooler" },
             { label: "Hydro Turbine Components", path: "/products/hydro-components" },
-            { label: "3D Laser Scanned Parts", path: "/products/reverse-engineered-components" },
+            { label: "Reverse Engineered Parts", path: "/products/reverse-engineered-components" },
             { label: "Custom Pressure Vessels", path: "/products/custom-products" },
           ],
         },
@@ -135,9 +135,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         {
           title: "Precision Engineering",
           links: [
-            { label: "Reverse Engineering (3D FARO)", path: "/services/reverse-engineering" },
+            { label: "Reverse Engineering & CAD Drafting", path: "/services/reverse-engineering" },
             { label: "White Metal Bearing Re-Babbitting", path: "/services/white-metal-rebabbitting" },
-            { label: "5-Axis CNC Tubesheet Drilling", path: "/services/precision-machining" },
+            { label: "High-Precision CNC Tubesheet Drilling", path: "/services/precision-machining" },
             { label: "ASME Engineering Consultancy", path: "/services/consultancy" },
           ],
         },

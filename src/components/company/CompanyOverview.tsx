@@ -8,7 +8,6 @@ import {
   Award,
   Zap,
   CheckCircle2,
-  ArrowRight,
   Gauge,
   Wrench,
   Sparkles,
@@ -21,26 +20,26 @@ interface CompanyOverviewProps {
   onNavigateToSection?: (pageId: string) => void;
 }
 
-export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavigateToSection }) => {
+export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = () => {
   const capabilities = [
     {
       title: "Shell & Tube Heat Exchangers",
-      desc: "Custom ASME Sec VIII Div 1 & TEMA Class R, C, B thermal units engineered for extreme pressure (>350 bar) and high temperatures (>850°C).",
+      desc: "Custom thermal units engineered for heavy industrial duty and high pressure/temperature process applications under Third Party Inspection.",
       icon: Flame,
     },
     {
       title: "Heat Exchanger Refurbishment",
-      desc: "Comprehensive retubing, tube bundle extraction, tubesheet re-facing, and ASME hydro-testing for thermal life extension.",
+      desc: "Comprehensive retubing, tube bundle extraction, tubesheet re-facing, and hydrostatic testing for complete thermal life extension.",
       icon: Wrench,
     },
     {
       title: "Tube Bundle Manufacturing",
-      desc: "Precision CNC drilled baffle and tubesheet bundles engineered with orbital TIG tube-to-tubesheet strength welding.",
+      desc: "Precision CNC drilled baffle and tubesheet bundles engineered with automated TIG tube-to-tubesheet strength welding.",
       icon: Layers,
     },
     {
       title: "Wire Wound Fin Tubes",
-      desc: "High-efficiency spirally wound wire finned tubing providing up to 350% increased heat transfer surface area per meter.",
+      desc: "High-efficiency spirally wound wire finned tubing providing significantly increased heat transfer surface area per meter.",
       icon: Cpu,
     },
     {
@@ -55,12 +54,12 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
     },
     {
       title: "Bearing Oil Coolers",
-      desc: "Compact, high-heat flux oil coolers for steam turbines, gas turbines, hydro turbines, and large industrial gearboxes.",
+      desc: "Compact, high-heat flux oil coolers for steam turbines, hydro turbines, and large industrial gearboxes.",
       icon: Gauge,
     },
     {
       title: "Surface Condensers",
-      desc: "HEI standard steam surface condensers engineered for sub-atmospheric vacuum service in nuclear and fossil power plants.",
+      desc: "HEI standard steam surface condensers engineered for sub-atmospheric vacuum service in hydro and thermal power stations.",
       icon: Compass,
     },
     {
@@ -70,17 +69,12 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
     },
     {
       title: "White Metal Bearing Re-Babbitting",
-      desc: "Centrifugal cast ASTM B23 Grade 2 white metal Babbitt bearing liners with ultrasonic bond integrity testing.",
+      desc: "ASTM B23 white metal Babbitt re-lining for Turbine Guide pads, Upper guide pads, Lower guide pads, and Thrust Pads with 100% bonding and defect free surface.",
       icon: Award,
     },
     {
-      title: "Reverse Engineering",
-      desc: "3D laser scanning, alloy optical emission spectrometry (OES), and thermal re-design for obsolete OEM units.",
-      icon: Sparkles,
-    },
-    {
       title: "Precision Machining & Performance",
-      desc: "5-axis gantry CNC milling, deep-hole drilling, and AI-driven CFD flow channel optimization.",
+      desc: "Use of high end CNC machining and other high end precise machinery for deep-hole drilling and custom fabrication.",
       icon: Globe,
     },
   ];
@@ -90,7 +84,6 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
       {/* PAGE 1: COMPANY OVERVIEW */}
       <section id="company-overview" className="relative">
         <div className="bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 border border-slate-800 rounded-3xl p-8 lg:p-12 shadow-2xl overflow-hidden">
-          {/* Subtle Ambient Radial Glow */}
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -98,25 +91,25 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
               <div className="flex items-center gap-3">
                 <span className="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono px-3 py-1 rounded-full font-bold uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" /> Corporate Dossier • Page 01
+                  <Sparkles className="w-3.5 h-3.5" /> Corporate Profile
                 </span>
                 <span className="text-slate-500 text-xs font-mono">|</span>
-                <span className="text-slate-400 text-xs font-mono">TPI Inspected • ASME VIII Div 1 & TEMA</span>
+                <span className="text-slate-400 text-xs font-mono">TPI Inspected • ISO 9001:2015 & ISO 14001:2025</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest">
-                  Noor Engineering Works (Parent Company est. 1983)
+                  Works Facility at Haridwar
                 </span>
               </div>
             </div>
 
             <div className="max-w-4xl space-y-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Engineering Thermal Certainty • Noor Engineering Works (est. 1983)
+                Engineering Thermal Certainty • Legacy 1983 to 2026+
               </h1>
               <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-                Founded on the 40-year legacy of parent enterprise <strong className="text-white">Noor Engineering Works (Established 1983)</strong>, Northern HeatEx Corporation was established by the next generation to serve private industrial clients and expand global export business. Headquartered in Haridwar, Uttarakhand, India, we manufacture, refurbish, and engineer high-pressure thermal heat transfer equipment under Third Party Inspection (TPI).
+                Building on the foundational heritage of parent enterprise <strong className="text-white">Noor Engineering Works (Established 1983)</strong>, <strong className="text-white">Northern HeatEx Corporation</strong> was formed in 2025 to expand global operations. Located at our <strong className="text-white">Works Facility at Haridwar</strong>, Uttarakhand, India, we manufacture, refurbish, and engineer thermal equipment under strict National and International standard procedures and Third Party Inspection (TPI) for government PSUs (NHPC Ltd, THDC Ltd, UJVNL, NPCIL, BBMB) and global industrial clients.
               </p>
             </div>
 
@@ -127,7 +120,7 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
                   <Zap className="w-4 h-4 text-cyan-400" />
                   Specialized Industrial Product & Engineering Capabilities
                 </h3>
-                <span className="text-xs text-slate-500 font-mono">12 Core Divisions</span>
+                <span className="text-xs text-slate-500 font-mono">11 Core Divisions</span>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -173,43 +166,43 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-6">
             <div className="flex items-center gap-3">
               <span className="bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono px-3 py-1 rounded-full font-bold uppercase tracking-wider">
-                Corporate Dossier • Page 02
+                Our Heritage & Story
               </span>
               <span className="text-slate-500 text-xs font-mono">|</span>
               <span className="text-slate-400 text-xs font-mono">Noor Engineering Works • Est. 1983</span>
             </div>
-            <span className="text-xs font-mono text-cyan-400">Since 1983 • Government Sector Partner</span>
+            <span className="text-xs font-mono text-cyan-400">Since 1983 to 2026+ • Government PSU Partner</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                Our Story: 40+ Years of Government & Industrial Engineering Excellence
+                Our Story: Legacy from 1983 to 2026+
               </h2>
               <div className="space-y-4 text-slate-300 text-sm leading-relaxed font-light">
                 <p>
-                  Established in 1983 as <strong className="text-white">Noor Engineering Works</strong>, our parent enterprise laid the foundation of precision mechanical engineering and heavy fabrication in Haridwar, Uttarakhand, serving as a trusted supplier for India's government sector, BHEL, State Electricity Boards, Railways, and PSUs.
+                  Established in 1983 as <strong className="text-white">Noor Engineering Works</strong>, our parent enterprise laid the foundation of precision mechanical engineering and heavy fabrication in Haridwar, Uttarakhand, serving as a trusted supplier for India's government sector, State Electricity Boards, Railways, and government PSUs like <strong className="text-white">NHPC Ltd, THDC Ltd, BBMB, UJVNL, NPCIL</strong>, and other major organizations.
                 </p>
                 <p>
-                  Building on over four decades of foundational excellence, the next generation established and formed <strong className="text-white">Northern HeatEx Corporation</strong> to cater to private corporate clients, MNCs, process engineering sectors, and international export business.
+                  Building on over four decades of foundational excellence, <strong className="text-white">Northern HeatEx Corporation</strong> was formed in 2025 to expand operations globally and serve private corporate accounts and international clients.
                 </p>
                 <p>
-                  Outfitted with heavy CNC deep-hole tubesheet drilling centers, automated orbital TIG welding stations, and high-pressure hydrostatic test bunkers in Jwalapur, Haridwar, Northern HeatEx Corporation carries forward this rich 1983 legacy under strict ASME VIII Div 1, TEMA, and Third Party Inspection (TPI) standards.
+                  Outfitted with high-end CNC deep-hole tubesheet drilling machinery, automated TIG welding stations, and high-pressure hydrostatic test facilities at our <strong className="text-white">Works Facility at Haridwar</strong>, Northern HeatEx Corporation carries forward this rich legacy under strict National and International standard procedures and Third Party Inspection (TPI).
                 </p>
               </div>
 
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-800 font-mono">
                 <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                  <span className="text-2xl font-extrabold text-cyan-400 block">14,200+</span>
-                  <span className="text-[11px] text-slate-400 uppercase tracking-wider block mt-1">Exchangers Installed</span>
+                  <span className="text-2xl font-extrabold text-cyan-400 block">4,000+</span>
+                  <span className="text-[11px] text-slate-400 uppercase tracking-wider block mt-1">Global Projects Completed</span>
                 </div>
                 <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
                   <span className="text-2xl font-extrabold text-cyan-400 block">99.8%</span>
                   <span className="text-[11px] text-slate-400 uppercase tracking-wider block mt-1">First-Pass Hydro Success</span>
                 </div>
                 <div className="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800">
-                  <span className="text-2xl font-extrabold text-cyan-400 block">38</span>
-                  <span className="text-[11px] text-slate-400 uppercase tracking-wider block mt-1">Global Markets Served</span>
+                  <span className="text-2xl font-extrabold text-cyan-400 block">1983-2026+</span>
+                  <span className="text-[11px] text-slate-400 uppercase tracking-wider block mt-1">Engineering Heritage</span>
                 </div>
               </div>
             </div>
@@ -217,42 +210,32 @@ export const CompanyOverviewSection: React.FC<CompanyOverviewProps> = ({ onNavig
             <div className="lg:col-span-5 bg-gradient-to-b from-slate-900 to-slate-950 p-6 rounded-2xl border border-slate-800 space-y-6">
               <h3 className="text-sm font-bold font-mono text-slate-200 uppercase tracking-wider flex items-center gap-2 border-b border-slate-800 pb-3">
                 <Award className="w-4 h-4 text-cyan-400" />
-                Foundational Pillars of Our Growth
+                Pillars of Our Engineering Excellence
               </h3>
 
               <ul className="space-y-4 font-mono text-xs">
                 <li className="flex items-start gap-3">
                   <span className="w-5 h-5 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-400 flex items-center justify-center font-bold shrink-0 mt-0.5">1</span>
                   <div>
-                    <strong className="text-slate-100 block">Uncompromising ASME Integrity</strong>
-                    <span className="text-slate-400 text-[11px]">Strict adherence to ASME Sec VIII Div 1 & TEMA Class R standards from raw ingot to final hydro-test.</span>
+                    <strong className="text-slate-100 block">Strict TPI & Standard Procedures</strong>
+                    <span className="text-slate-400 text-[11px]">Strict adherence to National and International standard procedures with Third Party Inspection clearance from raw material to final hydro-test.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-5 h-5 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-400 flex items-center justify-center font-bold shrink-0 mt-0.5">2</span>
                   <div>
-                    <strong className="text-slate-100 block">Rapid Emergency Turnaround</strong>
-                    <span className="text-slate-400 text-[11px]">Dedicated 24/7 emergency response unit for unscheduled plant shutdown retubing and bundle delivery.</span>
+                    <strong className="text-slate-100 block">Rapid Outage Turnaround</strong>
+                    <span className="text-slate-400 text-[11px]">Dedicated emergency response team for scheduled and unscheduled power station and refinery outage retubing.</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-5 h-5 rounded bg-cyan-950 border border-cyan-500/40 text-cyan-400 flex items-center justify-center font-bold shrink-0 mt-0.5">3</span>
                   <div>
-                    <strong className="text-slate-100 block">AI & Digital Twin Integration</strong>
-                    <span className="text-slate-400 text-[11px]">Next-generation predictive modeling for thermal fouling, acoustic resonance, and vibration prevention.</span>
+                    <strong className="text-slate-100 block">High-End Precision Machining</strong>
+                    <span className="text-slate-400 text-[11px]">High-end CNC deep-hole drilling and automated TIG welding ensuring high quality and zero-defect execution.</span>
                   </div>
                 </li>
               </ul>
-
-              {onNavigateToSection && (
-                <button
-                  onClick={() => onNavigateToSection("timeline")}
-                  className="w-full bg-slate-800 hover:bg-slate-700 text-cyan-300 font-mono text-xs font-bold py-2.5 rounded-xl border border-slate-700 flex items-center justify-center gap-2 transition"
-                >
-                  <span>Explore 48-Year Interactive Corporate Timeline</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              )}
             </div>
           </div>
         </div>

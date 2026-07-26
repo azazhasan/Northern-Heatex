@@ -44,11 +44,11 @@ export const CareersPortalSection: React.FC = () => {
       department: "Quality Assurance & Inspection",
       type: "Full-Time Permanent",
       experience: "10+ Years",
-      desc: "Oversee NDE radiographies, helium vacuum leak testing, and Super Duplex UNS S32750 orbital TIG welding procedure qualifications (WPS/PQR) under Third Party Inspection.",
+      desc: "Oversee NDE radiographies, hydrostatic vacuum leak testing, and Super Duplex UNS S32750 orbital TIG welding procedure qualifications (WPS/PQR) under Third Party Inspection.",
     },
     {
       id: "JOB-103",
-      title: "5-Axis CNC Gantry Mill Lead Machinist",
+      title: "High-Precision CNC Milling & Drilling Lead Machinist",
       location: "Noor Engineering Works, Jwalapur",
       department: "Precision Machining Operations",
       type: "Full-Time Permanent",

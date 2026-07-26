@@ -56,7 +56,7 @@ const ROUTE_METADATA: Record<string, { title: string; description: string; label
   },
   "/company/rd": {
     title: "Thermal R&D & Innovation | Northern HeatEx Corporation",
-    description: "Advanced wire-wound finning development, 3D laser scanning, and fluid flow acoustic resonance mitigation.",
+    description: "Advanced wire-wound finning development, reverse engineering, and fluid flow acoustic resonance mitigation.",
     label: "R&D",
   },
   "/company/csr": {
@@ -115,8 +115,8 @@ const ROUTE_METADATA: Record<string, { title: string; description: string; label
     label: "Hydro Components",
   },
   "/products/reverse-engineered-components": {
-    title: "3D Laser Scanned Reverse Engineering | Northern HeatEx",
-    description: "FARO 3D laser scanned blueprint reconstruction for obsolete or legacy OEM heat exchangers.",
+    title: "Reverse Engineering & CAD Reconstruction | Northern HeatEx",
+    description: "Precision blueprint reconstruction for obsolete or legacy OEM heat exchangers.",
     label: "Reverse Engineered Parts",
   },
   "/products/custom-products": {
@@ -126,7 +126,7 @@ const ROUTE_METADATA: Record<string, { title: string; description: string; label
   },
   "/services": {
     title: "Engineering & Field Services | Northern HeatEx Corporation",
-    description: "Manufacturing, on-site retubing, white metal re-babbitting, 5-axis CNC machining, and emergency outage services.",
+    description: "Manufacturing, on-site retubing, white metal re-babbitting, precision CNC machining, and emergency outage services.",
     label: "Services",
   },
   "/services/manufacturing": {
@@ -155,18 +155,18 @@ const ROUTE_METADATA: Record<string, { title: string; description: string; label
     label: "Shutdown Maintenance",
   },
   "/services/reverse-engineering": {
-    title: "3D Laser Scanning & Blueprint Re-Creation | Northern HeatEx",
-    description: "On-site FARO 3D point cloud scanning to recreate exact manufacturing drawings.",
+    title: "Reverse Engineering & Blueprint Re-Creation | Northern HeatEx",
+    description: "On-site physical dimensional measurement to recreate exact manufacturing drawings.",
     label: "Reverse Engineering",
   },
   "/services/white-metal-rebabbitting": {
     title: "White Metal Bearing Re-Babbitting | Northern HeatEx",
-    description: "Centrifugally cast ASTM B23 tin-based babbitt lining for heavy turbine journal bearings.",
+    description: "ASTM B23 tin-based babbitt lining for Turbine Guide pads, Upper guide pads, Lower guide pads, and Thrust Pads with 100% bonding and defect free surface.",
     label: "White Metal Re-Babbitting",
   },
   "/services/precision-machining": {
     title: "CNC Tubesheet Drilling & Flange Facing | Northern HeatEx",
-    description: "5-axis CNC deep hole drilling, serrated flange facing, and baffle plate machining.",
+    description: "High-precision CNC deep hole drilling, serrated flange facing, and baffle plate machining.",
     label: "Precision Machining",
   },
   "/services/consultancy": {
@@ -356,7 +356,7 @@ const ROUTE_METADATA: Record<string, { title: string; description: string; label
   },
   "/gallery": {
     title: "Workshop, Testing & 3D Media Gallery | Northern HeatEx",
-    description: "Photos and videos of Haridwar Works manufacturing bay, 5-axis CNC machining, and hydrotest bunker.",
+    description: "Photos and videos of Haridwar Works manufacturing bay, high-precision CNC machining, and hydrotest bunker.",
     label: "Gallery",
   },
   "/resources": {

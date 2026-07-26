@@ -64,7 +64,7 @@ export const INDUSTRIES_LIST: IndustryItem[] = [
     name: "Oil & Gas Refineries",
     desc: "Crude distillation unit (CDU) preheat trains, amine reboilers, hydrocracker high-pressure gas coolers, and API 660 units.",
     equipment: "TEMA Class R Heavy Petroleum Exchangers",
-    pressure: "Up to 350 Bar",
+    pressure: "Heavy Duty Coded",
     tempRange: "-50°C to +550°C",
     icon: Droplet,
   },

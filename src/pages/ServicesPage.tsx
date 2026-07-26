@@ -11,8 +11,8 @@ export const ServicesPage: React.FC = () => {
     {
       slug: "manufacturing",
       title: "Heat Exchanger Manufacturing",
-      desc: "5-axis CNC deep hole drilling, automated orbital TIG tube-to-tubesheet welding, and hydraulic expansion under ASME Section VIII Div 1 & TEMA standards.",
-      highlights: ["5-Axis CNC Drilling", "Orbital TIG Welding", "100% NDE Clearance", "ASME U-Stamp Ready"],
+      desc: "High-end CNC deep hole drilling, automated orbital TIG tube-to-tubesheet welding, and hydraulic expansion under National and International standards.",
+      highlights: ["High-End CNC Drilling", "Orbital TIG Welding", "100% NDE Clearance", "TPI Inspected & Cleared"],
       cta: "Request Manufacturing Spec",
     },
     {
@@ -39,34 +39,34 @@ export const ServicesPage: React.FC = () => {
     {
       slug: "shutdown-maintenance",
       title: "Power Plant Shutdown Maintenance",
-      desc: "Turnkey heat exchanger overhaul during scheduled power station and refinery turnaround outages, with 24-hour shift working at Haridwar Works.",
+      desc: "Turnkey heat exchanger overhaul during scheduled power station turnaround outages, with 24-hour shift working at Works Facility at Haridwar.",
       highlights: ["Turnaround Outages", "Helium Leak Detection", "Bundles Extraction", "Rapid Re-Assembly"],
       cta: "Plan Outage Support",
     },
     {
       slug: "reverse-engineering",
-      title: "3D Laser Scanning & Reverse Engineering",
-      desc: "FARO 3D point-cloud laser scanning on site for obsolete or un-documented OEM heat exchangers, generating manufacturing 2D CAD & 3D models.",
-      highlights: ["FARO 3D Laser Scanning", "Point Cloud to CAD", "Material Spectrometry", "Exact Drop-In Fit"],
-      cta: "Schedule On-Site Scan",
+      title: "Reverse Engineering & CAD Reconstruction",
+      desc: "Precision physical measurement on site for obsolete or un-documented OEM heat exchangers, generating manufacturing 2D CAD & 3D models.",
+      highlights: ["Physical Measurement", "CAD Blueprint Creation", "Material Spectrometry", "Exact Drop-In Fit"],
+      cta: "Request Reverse Engineering",
     },
     {
       slug: "white-metal-rebabbitting",
       title: "White Metal Bearing Re-Babbitting",
-      desc: "Centrifugally cast ASTM B23 tin-based babbitt lining for heavy hydro turbine journal bearings, thrust pads, and generator sleeve bearings.",
-      highlights: ["Centrifugal Casting", "ASTM B23 Babbitt", "Ultrasonic Bond Test", "Sub-Micron Precision"],
+      desc: "ASTM B23 tin-based babbitt lining for Turbine Guide pads, Upper guide pads, Lower guide pads, and Thrust Pads with 100% bonding and defect free surface.",
+      highlights: ["Turbine Guide Pads", "Upper & Lower Guide Pads", "Thrust Pads 100% Bonded", "Defect Free Surface"],
       cta: "Inquire Bearing Re-Babbitting",
     },
     {
       slug: "precision-machining",
-      title: "5-Axis CNC Tubesheet Drilling",
+      title: "High-End CNC Tubesheet Drilling",
       desc: "Precision deep-hole drilling of thick tubesheets up to 400mm thickness, serrated tube groove machining, and baffle plate bundle stack cutting.",
       highlights: ["400mm Max Thickness", "Serrated Tube Grooves", "Baffle Stack CNC", "High Hole Pitch Tolerance"],
       cta: "Request Machining Quote",
     },
     {
       slug: "consultancy",
-      title: "ASME & Thermal Design Consultancy",
+      title: "Thermal & Standards Design Consultancy",
       desc: "Expert thermal duty calculations, flow-induced vibration risk assessment, and material selection audits led by senior Haridwar engineers.",
       highlights: ["LMTD & NTU Verification", "Vibration FEA Analysis", "Alloy Cost Optimization", "Third Party Clearance"],
       cta: "Consult Lead Engineer",
@@ -100,7 +100,7 @@ export const ServicesPage: React.FC = () => {
           </h1>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            From 5-axis CNC machining at Haridwar Works to 24/7 mobile retubing response for power plants and refineries across India.
+            From high-precision CNC machining at Works Facility at Haridwar to 24/7 mobile retubing response for power plants and refineries across India.
           </p>
 
           {/* Sub-Service Buttons */}

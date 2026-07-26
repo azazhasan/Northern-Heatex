@@ -7,6 +7,7 @@ import { CostAndQuotationBuilder } from "../components/engineering/CostAndQuotat
 import { EngineeringReportsModule } from "../components/engineering/EngineeringReportsModule";
 import { DrawingGeneratorModule } from "../components/engineering/DrawingGeneratorModule";
 import { BOMGeneratorModule } from "../components/engineering/BOMGeneratorModule";
+import { FabricationIndustryEstimator } from "../components/engineering/FabricationIndustryEstimator";
 import { GSTBusinessToolsHub } from "../components/business/GSTBusinessToolsHub";
 import { HeatExchanger3DCanvas } from "../components/3d/HeatExchanger3DCanvas";
 import { AIFailureAnalysisModule } from "../components/engineering/AIFailureAnalysisModule";
@@ -27,6 +28,7 @@ export const SoftwarePage: React.FC = () => {
     { slug: "retubing-performance", label: "Retubing & Failure Predictor", icon: Activity },
     { slug: "mechanical-design", label: "ASME Mechanical Studio", icon: Cpu },
     { slug: "material-selection", label: "Material Alloy Matrix", icon: Layers },
+    { slug: "fab-estimator", label: "Pro Fabrication Industry Estimator", icon: FileSpreadsheet },
     { slug: "cost-estimator", label: "Cost & Quotation Builder", icon: FileSpreadsheet },
     { slug: "drawing-generator", label: "2D CAD & DXF Generator", icon: FileCode },
     { slug: "bom-generator", label: "Bill of Materials (BOM)", icon: Layers },
@@ -106,6 +108,8 @@ export const SoftwarePage: React.FC = () => {
         <DrawingGeneratorModule />
       ) : subSlug === "bom-generator" ? (
         <BOMGeneratorModule />
+      ) : subSlug === "fab-estimator" ? (
+        <FabricationIndustryEstimator />
       ) : subSlug === "gst-calculator" || subSlug === "hsn-finder" || subSlug === "unit-converter" || subSlug === "scientific-calculator" || subSlug === "calculators" ? (
         <GSTBusinessToolsHub />
       ) : subSlug === "engineering-tools" ? (

@@ -91,10 +91,10 @@ export const ProductDetailView: React.FC<Props> = ({ product, onBackToCatalog, o
         <div className="relative z-10 space-y-6 max-w-4xl">
           <div className="flex flex-wrap items-center gap-3">
             <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-cyan-950 text-cyan-400 border border-cyan-500/40">
-              {product.categoryTag}
+              Works Facility at Haridwar
             </span>
             <span className="px-3 py-1 rounded-full text-xs font-mono text-white/70 bg-white/5 border border-white/10">
-              {product.badgeText}
+              ISO 9001:2015 & ISO 14001:2025 Certified • TPI Inspected
             </span>
           </div>
 

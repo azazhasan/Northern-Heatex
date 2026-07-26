@@ -8,6 +8,7 @@ import { LoadingScreen } from "./components/home/LoadingScreen";
 import { AudioController } from "./components/home/AudioController";
 import { FloatingUnitConverter } from "./components/common/FloatingUnitConverter";
 import { FloatingWeightCalculator } from "./components/common/FloatingWeightCalculator";
+import { FloatingFabEstimator } from "./components/common/FloatingFabEstimator";
 
 // Page Components
 import { HomePage } from "./pages/HomePage";
@@ -101,9 +102,10 @@ const MainAppContent: React.FC = () => {
       {/* Synthesized Audio Controller */}
       <AudioController />
 
-      {/* Suite-Wide Floating Engineering Unit Converter & Weight Calculator */}
+      {/* Suite-Wide Floating Engineering Tools Hub */}
       <FloatingUnitConverter />
       <FloatingWeightCalculator />
+      <FloatingFabEstimator />
 
       {/* Top Fixed Header Navigation */}
       <Navbar

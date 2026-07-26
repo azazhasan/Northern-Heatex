@@ -37,8 +37,6 @@ import {
   CartesianGrid
 } from "recharts";
 
-import { MaterialWeightCalculator } from "../engineering/MaterialWeightCalculator";
-
 // --- UNIT CONVERSION ENGINE TYPES & DATA ---
 
 export type UnitCategoryKey =
@@ -542,7 +540,7 @@ export const UnitScaleChart: React.FC<ScaleChartProps> = ({
 export const FloatingUnitConverter: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
-  const [activeTab, setActiveTab] = useState<"converter" | "matrix" | "presets" | "history" | "weight_price">("converter");
+  const [activeTab, setActiveTab] = useState<"converter" | "matrix" | "presets" | "history">("converter");
 
   // Converter state
   const [selectedCategoryKey, setSelectedCategoryKey] = useState<UnitCategoryKey>("thermal_duty");
@@ -799,17 +797,6 @@ export const FloatingUnitConverter: React.FC = () => {
                       >
                         <BookOpen className="w-3.5 h-3.5" />
                         BWG & Presets
-                      </button>
-                      <button
-                        onClick={() => setActiveTab("weight_price")}
-                        className={`px-3 py-1.5 rounded-lg transition cursor-pointer flex items-center gap-1.5 ${
-                          activeTab === "weight_price"
-                            ? "bg-[#0056A6] text-white shadow-sm"
-                            : "text-slate-600 hover:text-slate-900"
-                        }`}
-                      >
-                        <Scale className="w-3.5 h-3.5 text-amber-500" />
-                        Weight & Price Calc
                       </button>
                       <button
                         onClick={() => setActiveTab("history")}
@@ -1182,21 +1169,7 @@ export const FloatingUnitConverter: React.FC = () => {
                       </div>
                     )}
 
-                    {/* TAB 5: MATERIAL WEIGHT & PRICE CALCULATOR */}
-                    {activeTab === "weight_price" && (
-                      <div className="space-y-4">
-                        <div className="pb-2 border-b border-slate-200">
-                          <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
-                            <Scale className="w-4 h-4 text-[#0056A6]" /> Metal & Alloy Weight and Commercial Price Calculator
-                          </h4>
-                          <p className="text-[11px] text-slate-500">
-                            Calculate theoretical piece weights, scrap waste allowances, & market price totals across all profiles and alloys
-                          </p>
-                        </div>
 
-                        <MaterialWeightCalculator embeddedInModal={true} />
-                      </div>
-                    )}
                   </div>
 
                   {/* Widget Footer Bar */}

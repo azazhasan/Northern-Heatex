@@ -13,20 +13,41 @@ import {
 export const BOMGeneratorModule: React.FC = () => {
   const [searchFilter, setSearchFilter] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
+  const [currency, setCurrency] = useState<"INR" | "USD" | "EUR">("INR");
 
-  const bomItems = [
-    { itemNo: "01", component: "Shell Barrel Plate", asmeSpec: "SA-516 Grade 70", size: "OD 900 mm x 16 mm Wall x 4500 mm L", qty: 1, unitWeight: 1540, totalWeight: 1540, unitCost: "$4,200", totalCost: "$4,200", category: "Pressure Parts" },
-    { itemNo: "02", component: "Stationary Tubesheet", asmeSpec: "SA-266 Gr 2 + Cu-Ni Clad", size: "Ø 920 mm x 75 mm Thk", qty: 1, unitWeight: 380, totalWeight: 380, unitCost: "$6,500", totalCost: "$6,500", category: "Tubesheets" },
-    { itemNo: "03", component: "Floating Tubesheet", asmeSpec: "SA-266 Gr 2 + Cu-Ni Clad", size: "Ø 880 mm x 65 mm Thk", qty: 1, unitWeight: 310, totalWeight: 310, unitCost: "$5,800", totalCost: "$5,800", category: "Tubesheets" },
-    { itemNo: "04", component: "Heat Exchanger Tubes", asmeSpec: "SB-111 C70600 (Cu-Ni 90/10)", size: "3/4\" (19.05 mm) OD x 18 BWG x 4500 mm", qty: 420, unitWeight: 2.8, totalWeight: 1176, unitCost: "$45", totalCost: "$18,900", category: "Tubes" },
-    { itemNo: "05", component: "Transverse Baffle Plates", asmeSpec: "SA-283 Grade C", size: "9.5 mm Thk x 20% Cut", qty: 8, unitWeight: 32, totalWeight: 256, unitCost: "$180", totalCost: "$1,440", category: "Internals" },
-    { itemNo: "06", component: "Tie Rods & Spacers", asmeSpec: "SA-193 B7 / SA-106", size: "Ø 16 mm x 4400 mm L", qty: 6, unitWeight: 8, totalWeight: 48, unitCost: "$95", totalCost: "$570", category: "Internals" },
-    { itemNo: "07", component: "Shell Nozzles N1 / N2", asmeSpec: "SA-106 Gr B / SA-105 Flange", size: "DN 200 (8\") ANSI 300# RFWN", qty: 2, unitWeight: 65, totalWeight: 130, unitCost: "$850", totalCost: "$1,700", category: "Nozzles & Flanges" },
-    { itemNo: "08", component: "Tube Nozzles N3 / N4", asmeSpec: "SA-106 Gr B / SA-105 Flange", size: "DN 150 (6\") ANSI 150# RFWN", qty: 2, unitWeight: 42, totalWeight: 84, unitCost: "$620", totalCost: "$1,240", category: "Nozzles & Flanges" },
-    { itemNo: "09", component: "Gaskets (Spiral Wound)", asmeSpec: "316L SS / Flexible Graphite", size: "ANSI 300# & Custom Shell Gasket", qty: 4, unitWeight: 3.5, totalWeight: 14, unitCost: "$210", totalCost: "$840", category: "Gaskets & Fasteners" },
-    { itemNo: "10", component: "Studs & Heavy Hex Nuts", asmeSpec: "SA-193 B7 / SA-194 2H", size: "M24 x 180 mm Studs", qty: 64, unitWeight: 0.8, totalWeight: 51.2, unitCost: "$12", totalCost: "$768", category: "Gaskets & Fasteners" },
-    { itemNo: "11", component: "Sacrificial Zinc Anodes", asmeSpec: "ASTM B418 Type I Zinc", size: "Custom Threaded Plug Mount", qty: 4, unitWeight: 4.0, totalWeight: 16, unitCost: "$85", totalCost: "$340", category: "Internals" },
+  const currencyRates = {
+    INR: { rate: 1, symbol: "₹" },
+    USD: { rate: 0.0116, symbol: "$" },
+    EUR: { rate: 0.0107, symbol: "€" },
+  };
+
+  const currentCurr = currencyRates[currency];
+
+  const bomRawItems = [
+    { itemNo: "01", component: "Shell Barrel Plate", asmeSpec: "SA-516 Grade 70", size: "OD 900 mm x 16 mm Wall x 4500 mm L", qty: 1, unitWeight: 1540, totalWeight: 1540, unitCostINR: 363300, category: "Pressure Parts" },
+    { itemNo: "02", component: "Stationary Tubesheet", asmeSpec: "SA-266 Gr 2 + Cu-Ni Clad", size: "Ø 920 mm x 75 mm Thk", qty: 1, unitWeight: 380, totalWeight: 380, unitCostINR: 562250, category: "Tubesheets" },
+    { itemNo: "03", component: "Floating Tubesheet", asmeSpec: "SA-266 Gr 2 + Cu-Ni Clad", size: "Ø 880 mm x 65 mm Thk", qty: 1, unitWeight: 310, totalWeight: 310, unitCostINR: 501700, category: "Tubesheets" },
+    { itemNo: "04", component: "Heat Exchanger Tubes", asmeSpec: "SB-111 C70600 (Cu-Ni 90/10)", size: "3/4\" (19.05 mm) OD x 18 BWG x 4500 mm", qty: 420, unitWeight: 2.8, totalWeight: 1176, unitCostINR: 3890, category: "Tubes" },
+    { itemNo: "05", component: "Transverse Baffle Plates", asmeSpec: "SA-283 Grade C", size: "9.5 mm Thk x 20% Cut", qty: 8, unitWeight: 32, totalWeight: 256, unitCostINR: 15570, category: "Internals" },
+    { itemNo: "06", component: "Tie Rods & Spacers", asmeSpec: "SA-193 B7 / SA-106", size: "Ø 16 mm x 4400 mm L", qty: 6, unitWeight: 8, totalWeight: 48, unitCostINR: 8210, category: "Internals" },
+    { itemNo: "07", component: "Shell Nozzles N1 / N2", asmeSpec: "SA-106 Gr B / SA-105 Flange", size: "DN 200 (8\") ANSI 300# RFWN", qty: 2, unitWeight: 65, totalWeight: 130, unitCostINR: 73520, category: "Nozzles & Flanges" },
+    { itemNo: "08", component: "Tube Nozzles N3 / N4", asmeSpec: "SA-106 Gr B / SA-105 Flange", size: "DN 150 (6\") ANSI 150# RFWN", qty: 2, unitWeight: 42, totalWeight: 84, unitCostINR: 53630, category: "Nozzles & Flanges" },
+    { itemNo: "09", component: "Gaskets (Spiral Wound)", asmeSpec: "316L SS / Flexible Graphite", size: "ANSI 300# & Custom Shell Gasket", qty: 4, unitWeight: 3.5, totalWeight: 14, unitCostINR: 18165, category: "Gaskets & Fasteners" },
+    { itemNo: "10", component: "Studs & Heavy Hex Nuts", asmeSpec: "SA-193 B7 / SA-194 2H", size: "M24 x 180 mm Studs", qty: 64, unitWeight: 0.8, totalWeight: 51.2, unitCostINR: 1038, category: "Gaskets & Fasteners" },
+    { itemNo: "11", component: "Sacrificial Zinc Anodes", asmeSpec: "ASTM B418 Type I Zinc", size: "Custom Threaded Plug Mount", qty: 4, unitWeight: 4.0, totalWeight: 16, unitCostINR: 7350, category: "Internals" },
   ];
+
+  const formatCost = (costInINR: number) => {
+    const val = Math.round(costInINR * currentCurr.rate);
+    return `${currentCurr.symbol}${val.toLocaleString()}`;
+  };
+
+  const bomItems = bomRawItems.map((item) => ({
+    ...item,
+    unitCostFormatted: formatCost(item.unitCostINR),
+    totalCostFormatted: formatCost(item.unitCostINR * item.qty),
+    totalCostVal: item.unitCostINR * item.qty,
+  }));
 
   const filteredItems = bomItems.filter((i) => {
     const matchesSearch =
@@ -41,6 +62,7 @@ export const BOMGeneratorModule: React.FC = () => {
   });
 
   const totalWeightSum = filteredItems.reduce((acc, curr) => acc + curr.totalWeight, 0);
+  const totalCostSumINR = filteredItems.reduce((acc, curr) => acc + curr.totalCostVal, 0);
 
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -62,10 +84,29 @@ export const BOMGeneratorModule: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Currency Switcher */}
+            <div className="flex items-center bg-slate-900 p-1 rounded-xl border border-slate-700 font-mono text-xs">
+              <span className="text-[10px] text-slate-400 font-bold px-2 uppercase">Currency:</span>
+              {(["INR", "USD", "EUR"] as const).map((c) => (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setCurrency(c)}
+                  className={`px-2.5 py-1 rounded-lg font-bold transition cursor-pointer ${
+                    currency === c
+                      ? "bg-cyan-500 text-slate-950 shadow"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800"
+                  }`}
+                >
+                  {c === "INR" ? "₹ INR" : c === "USD" ? "$ USD" : "€ EUR"}
+                </button>
+              ))}
+            </div>
+
             <button
               onClick={() => alert("Exporting BOM to Excel / CSV...")}
-              className="px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl font-mono text-xs uppercase flex items-center gap-2 shadow-lg"
+              className="px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-xl font-mono text-xs uppercase flex items-center gap-2 shadow-lg cursor-pointer"
             >
               <Download className="w-4 h-4" /> Export Excel
             </button>
@@ -92,7 +133,7 @@ export const BOMGeneratorModule: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setCategoryFilter(cat)}
-                className={`px-3 py-1.5 rounded-lg transition ${
+                className={`px-3 py-1.5 rounded-lg transition cursor-pointer ${
                   categoryFilter === cat
                     ? "bg-cyan-950 text-cyan-300 border border-cyan-500/50 font-bold"
                     : "bg-white/5 text-white/60 hover:text-white"
@@ -104,9 +145,10 @@ export const BOMGeneratorModule: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between font-mono text-xs pt-3 border-t border-white/5 text-white/60">
+        <div className="flex flex-wrap items-center justify-between font-mono text-xs pt-3 border-t border-white/5 text-white/60 gap-3">
           <span>Total Line Items: <strong className="text-cyan-400">{filteredItems.length}</strong></span>
           <span>Calculated Dry Weight: <strong className="text-amber-300">{Math.round(totalWeightSum)} kg (~{Math.round(totalWeightSum * 2.20462)} lbs)</strong></span>
+          <span>Total Materials Cost: <strong className="text-emerald-400 font-bold text-sm">{formatCost(totalCostSumINR)}</strong></span>
         </div>
       </div>
 
@@ -122,8 +164,8 @@ export const BOMGeneratorModule: React.FC = () => {
               <th className="p-3 text-center">Qty</th>
               <th className="p-3 text-right">Unit Wt (kg)</th>
               <th className="p-3 text-right">Total Wt (kg)</th>
-              <th className="p-3 text-right">Unit Cost</th>
-              <th className="p-3 text-right">Ext Cost</th>
+              <th className="p-3 text-right">Unit Cost ({currentCurr.symbol})</th>
+              <th className="p-3 text-right">Ext Cost ({currentCurr.symbol})</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
@@ -136,8 +178,8 @@ export const BOMGeneratorModule: React.FC = () => {
                 <td className="p-3 text-center font-bold text-white">{item.qty}</td>
                 <td className="p-3 text-right text-white/60">{item.unitWeight}</td>
                 <td className="p-3 text-right font-bold text-amber-300">{item.totalWeight}</td>
-                <td className="p-3 text-right text-white/60">{item.unitCost}</td>
-                <td className="p-3 text-right font-bold text-emerald-400">{item.totalCost}</td>
+                <td className="p-3 text-right text-white/60">{item.unitCostFormatted}</td>
+                <td className="p-3 text-right font-bold text-emerald-400">{item.totalCostFormatted}</td>
               </tr>
             ))}
           </tbody>

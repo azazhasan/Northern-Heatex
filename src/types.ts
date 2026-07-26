@@ -154,18 +154,79 @@ export interface ProjectMilestone {
   completionDate?: string;
 }
 
+export interface UploadedReport {
+  id: string;
+  title: string;
+  category: "MTR Certificate" | "Radiography RT Report" | "Hydrotest Witness Certificate" | "PWHT Chart" | "TPI Inspection Signoff" | "QAP Stage Report" | "Other";
+  fileName: string;
+  fileSize: string;
+  uploadedAt: string;
+  uploadedBy: string;
+  visibleToClient: boolean;
+  fileDataUrl?: string;
+  stageId?: string;
+}
+
+export interface QAPStage {
+  id: string;
+  stageNumber: number;
+  title: string;
+  description: string;
+  status: "Pending" | "In Progress" | "Completed" | "Hold / NDE Required";
+  completionDate?: string;
+  inspectorName?: string;
+  attachedReports: UploadedReport[];
+}
+
+export interface GuaranteeDetail {
+  amount: number;
+  currency: "INR" | "USD";
+  form: "FDR" | "Bank Guarantee (BG)" | "Demand Draft (DD)" | "Online E-Transfer";
+  instrumentNo: string;
+  issuingBank: string;
+  depositDate: string;
+  validityCompletionDate: string;
+  status: "Active / Deposited" | "Released / Returned" | "Matured" | "Forfeited" | "Pending Deposit";
+}
+
+export interface TenderRecord {
+  id: string;
+  tenderNo: string;
+  tenderTitle: string;
+  departmentName: string;
+  participationStatus: "Participated" | "Awarded / Won" | "L1 Bidder" | "Under Evaluation" | "Non-Awarded";
+  awardeeFirm: string;
+  estimatedProjectValue: number;
+  currency: "INR" | "USD";
+  submissionDate: string;
+  openingDate: string;
+  emd: GuaranteeDetail;
+  performanceGuarantee: GuaranteeDetail;
+  notifyEmails: string[];
+  emailSentOnCompletion: boolean;
+  emailLogs: {
+    id: string;
+    sentDate: string;
+    recipientEmail: string;
+    subject: string;
+    body: string;
+  }[];
+}
+
 export interface CustomerProject {
   id: string;
   projectNumber: string;
   title: string;
   clientCompany: string;
   temaType: TEMAType;
-  status: "Engineering Review" | "Material Procurement" | "CNC Machining" | "Tube Bundle Assembly" | "Hydro Testing" | "Factory Acceptance" | "Shipped";
+  status: string;
   progressPercent: number;
   estimatedDelivery: string;
-  milestones: ProjectMilestone[];
   asmeStamped: boolean;
-  documents: { title: string; type: string; url: string; size: string }[];
+  qapStages: QAPStage[];
+  milestones?: ProjectMilestone[];
+  documents: { title: string; type: string; url: string; size: string; uploadedAt?: string }[];
+  uploadedReports: UploadedReport[];
 }
 
 export interface AIMessage {

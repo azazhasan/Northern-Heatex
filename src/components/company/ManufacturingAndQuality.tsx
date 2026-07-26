@@ -20,46 +20,25 @@ export const ManufacturingAndQualitySection: React.FC = () => {
   const [showAdminCertModal, setShowAdminCertModal] = useState(false);
   const [certifications, setCertifications] = useState([
     {
-      code: "ASME VIII DESIGN",
-      title: "ASME Boiler & Pressure Vessel Code Sec VIII Div 1",
-      body: "Designed per ASME VIII Div 1 • Third Party Inspection",
-      validUntil: "2029-12-31",
-      status: "TPI Compliant",
-    },
-    {
-      code: "TEMA CLASS R",
-      title: "Tubular Exchanger Manufacturers Association Class R",
-      body: "TEMA Heavy Petroleum & Chemical Standards",
-      validUntil: "2028-06-30",
-      status: "Active Held",
-    },
-    {
       code: "ISO 9001:2015",
       title: "Quality Management Systems Certification",
-      body: "Lloyd's Register Quality Assurance (LRQA)",
-      validUntil: "2027-09-15",
+      body: "Lloyd's Register Quality Assurance (LRQA) / Standard Audited",
+      validUntil: "2028-12-31",
       status: "Active Held",
     },
     {
-      code: "ISO 14001:2015",
+      code: "ISO 14001:2025",
       title: "Environmental Management Systems Compliance",
-      body: "LRQA Environmental Safety Authority",
-      validUntil: "2027-09-15",
+      body: "ISO Environmental Safety & Sustainability Standard",
+      validUntil: "2028-12-31",
       status: "Active Held",
     },
     {
-      code: "API 660",
-      title: "Shell-and-Tube Heat Exchangers for General Refinery Service",
-      body: "American Petroleum Institute",
-      validUntil: "2028-11-20",
-      status: "Active Compliance",
-    },
-    {
-      code: "HEI STANDARDS",
-      title: "Standards for Steam Surface Condensers",
-      body: "Heat Exchange Institute",
-      validUntil: "2029-01-01",
-      status: "Active Compliance",
+      code: "TPI CLEARANCE",
+      title: "Third Party Inspection Clearance & Standard Procedures",
+      body: "Inspected by Internationally Accepted Agencies (TUV, Lloyd's, Bureau Veritas, SGS)",
+      validUntil: "2029-12-31",
+      status: "Active Assurance",
     },
   ]);
 
@@ -82,8 +61,8 @@ export const ManufacturingAndQualitySection: React.FC = () => {
   const manufacturingLifecycle = [
     {
       step: "01",
-      phase: "AI & CFD Thermal Design",
-      desc: "Process thermal sizing using HTRI software and proprietary AI fluid channel algorithms for pressure drop minimization.",
+      phase: "Thermal Design & Calculation",
+      desc: "Process thermal sizing and fluid channel optimization for pressure drop minimization and high heat transfer efficiency.",
     },
     {
       step: "02",
@@ -97,23 +76,23 @@ export const ManufacturingAndQualitySection: React.FC = () => {
     },
     {
       step: "04",
-      phase: "Gantry CNC Tubesheet Machining",
-      desc: "Micron-accurate drilling, reaming, and double-grooving on 5-axis gantry CNC milling workstations.",
+      phase: "Precision CNC Tubesheet Machining",
+      desc: "Micron-accurate deep-hole drilling, reaming, and double-grooving on high-end CNC machining workstations.",
     },
     {
       step: "05",
       phase: "Automated Orbital TIG Welding",
-      desc: "Robotic pulse TIG tube-to-tubesheet strength welding with closed-loop inert argon gas purging.",
+      desc: "Precision orbital TIG tube-to-tubesheet strength welding with closed-loop inert argon gas purging.",
     },
     {
       step: "06",
-      phase: "ASME Hydrostatic & Helium Testing",
-      desc: "High-pressure shell and tube hydro testing at 1.3x - 1.5x design pressure followed by mass spec helium vacuum leak detection.",
+      phase: "Hydrostatic & Vacuum Leak Testing",
+      desc: "High-pressure shell and tube hydro testing followed by precision vacuum leak detection witnessed by TPI Inspectors.",
     },
     {
       step: "07",
       phase: "Final Coating & Export Packaging",
-      desc: "Heavy marine epoxy coating application, nitrogen purge charge, and ocean-ready wooden crating.",
+      desc: "Heavy marine protective coating application, nitrogen purge charge, and ocean-ready crating.",
     },
   ];
 

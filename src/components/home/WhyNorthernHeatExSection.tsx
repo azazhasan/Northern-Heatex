@@ -13,7 +13,7 @@ export const WhyNorthernHeatExSection: React.FC = () => {
     {
       icon: ShieldCheck,
       title: "Precision Haridwar Facility",
-      desc: "5-axis CNC tubesheet drilling, automated orbital tube-to-tubesheet TIG welding, and hydraulic expansion.",
+      desc: "Precision CNC tubesheet drilling, automated orbital tube-to-tubesheet TIG welding, and hydraulic expansion.",
     },
     {
       icon: Zap,
@@ -33,7 +33,7 @@ export const WhyNorthernHeatExSection: React.FC = () => {
     {
       icon: RefreshCw,
       title: "On-Site Retubing & NDE",
-      desc: "Mobile hydraulic bundle pullers, Eddy Current testing, and helium leak detection.",
+      desc: "Mobile hydraulic bundle pullers, Eddy Current testing, and vacuum leak testing.",
     },
     {
       icon: DollarSign,

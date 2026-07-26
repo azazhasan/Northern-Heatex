@@ -132,9 +132,9 @@ export const LegacyAndValuesSection: React.FC = () => {
 
             <div className="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 space-y-3">
               <span className="text-xs text-cyan-400 font-bold uppercase tracking-wider block">03 / Hydro & NDE Inspection</span>
-              <h4 className="text-sm font-bold text-slate-100">Third Party Verified Hydro & Helium Testing</h4>
+              <h4 className="text-sm font-bold text-slate-100">Third Party Verified Hydro & Vacuum Testing</h4>
               <p className="text-xs text-slate-400 leading-relaxed font-sans">
-                Every unit undergoes high-pressure hydrostatic testing up to 1.5x design pressure, accompanied by mass-spectrometer helium vacuum testing for zero micro-fissure leakage.
+                Every unit undergoes high-pressure hydrostatic testing up to 1.5x design pressure, accompanied by precision vacuum leak testing for zero micro-fissure leakage.
               </p>
             </div>
           </div>

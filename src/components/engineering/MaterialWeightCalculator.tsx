@@ -817,7 +817,13 @@ Northern HeatEx Engineering Suite - Official Calculation
               <div className="text-right space-y-0.5">
                 <span className="text-[10px] text-slate-500 block">Typical Benchmark Rate:</span>
                 <span className="font-bold text-emerald-700">
-                  ${selectedMaterial.defaultPricePerKgUSD.toFixed(2)} / kg
+                  {currencySymbol === "₹"
+                    ? `₹${Math.round(selectedMaterial.defaultPricePerKgUSD * 85)}`
+                    : currencySymbol === "€"
+                    ? `€${(selectedMaterial.defaultPricePerKgUSD * 0.92).toFixed(2)}`
+                    : currencySymbol === "£"
+                    ? `£${(selectedMaterial.defaultPricePerKgUSD * 0.78).toFixed(2)}`
+                    : `$${selectedMaterial.defaultPricePerKgUSD.toFixed(2)}`} / kg
                 </span>
               </div>
             </div>

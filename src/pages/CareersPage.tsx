@@ -16,7 +16,7 @@ export const CareersPage: React.FC = () => {
       reqs: "B.Tech / M.Tech Mechanical Engineering with 5+ years experience in HTRI/TEMA heat exchanger thermal sizing.",
     },
     {
-      title: "5-Axis CNC Programmer & Machinist",
+      title: "Precision CNC Programmer & Machinist",
       dept: "Manufacturing Bay 1",
       location: "Haridwar Works, Uttarakhand",
       type: "Full-Time Permanent",

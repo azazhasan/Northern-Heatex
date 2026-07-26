@@ -8,6 +8,47 @@ import { EngineeringExportStudio } from "./EngineeringExportStudio";
 export const CostAndQuotationBuilder: React.FC = () => {
   const [quote, setQuote] = useState<CommercialQuotation>(INITIAL_QUOTATION);
   const [exportSuccess, setExportSuccess] = useState<boolean>(false);
+  const [currency, setCurrency] = useState<"INR" | "USD" | "EUR" | "GBP">("INR");
+
+  const currencySymbols = {
+    INR: "₹",
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+  };
+
+  const exchangeRates = {
+    INR: 1,
+    USD: 0.0116,
+    EUR: 0.0107,
+    GBP: 0.0091,
+  };
+
+  const currSymbol = currencySymbols[currency] || "₹";
+
+  // Currency Switcher Handler
+  const handleCurrencySwitch = (newCurr: "INR" | "USD" | "EUR" | "GBP") => {
+    if (newCurr === currency) return;
+    const oldRate = exchangeRates[currency];
+    const newRate = exchangeRates[newCurr];
+    const factor = newRate / oldRate;
+
+    const convertedItems = quote.items.map((item) => {
+      const newUnitCost = Math.round(item.unitCost * factor * 100) / 100;
+      return {
+        ...item,
+        unitCost: newUnitCost,
+        totalCost: Math.round(item.quantity * newUnitCost * 100) / 100,
+      };
+    });
+
+    setCurrency(newCurr);
+    setQuote((prev) => ({
+      ...prev,
+      currency: newCurr,
+      items: convertedItems,
+    }));
+  };
 
   // Recalculate Totals
   const subtotal = quote.items.reduce((sum, item) => sum + item.totalCost, 0);
@@ -32,14 +73,15 @@ export const CostAndQuotationBuilder: React.FC = () => {
   };
 
   const addItem = () => {
+    const defaultUnitCost = currency === "INR" ? 215000 : 2500;
     const newItem: QuotationLineItem = {
       id: Date.now().toString(),
       category: "Materials",
       description: "Additional Fabrication / Precision Machining Item",
       quantity: 1,
       unit: "Lot",
-      unitCost: 2500,
-      totalCost: 2500,
+      unitCost: defaultUnitCost,
+      totalCost: defaultUnitCost,
     };
     setQuote((prev) => ({ ...prev, items: [...prev.items, newItem] }));
   };
@@ -102,9 +144,9 @@ export const CostAndQuotationBuilder: React.FC = () => {
     doc.setTextColor(255, 255, 255);
     doc.setFont("helvetica", "bold");
     doc.text("Item Description", 18, startY + 5.5);
-    doc.text("Qty", 130, startY + 5.5);
-    doc.text("Unit Cost", 150, startY + 5.5);
-    doc.text("Total (USD)", 175, startY + 5.5);
+    doc.text("Qty", 125, startY + 5.5);
+    doc.text(`Unit Cost (${currency})`, 142, startY + 5.5);
+    doc.text(`Total (${currency})`, 172, startY + 5.5);
 
     startY += 8;
     doc.setFont("helvetica", "normal");
@@ -116,11 +158,11 @@ export const CostAndQuotationBuilder: React.FC = () => {
         doc.rect(14, startY, 182, 8, "F");
       }
 
-      const descText = item.description.length > 55 ? item.description.substring(0, 52) + "..." : item.description;
+      const descText = item.description.length > 50 ? item.description.substring(0, 47) + "..." : item.description;
       doc.text(descText, 18, startY + 5.5);
-      doc.text(`${item.quantity} ${item.unit}`, 130, startY + 5.5);
-      doc.text(`$${item.unitCost.toLocaleString()}`, 150, startY + 5.5);
-      doc.text(`$${item.totalCost.toLocaleString()}`, 175, startY + 5.5);
+      doc.text(`${item.quantity} ${item.unit}`, 125, startY + 5.5);
+      doc.text(`${currSymbol}${Math.round(item.unitCost).toLocaleString()}`, 142, startY + 5.5);
+      doc.text(`${currSymbol}${Math.round(item.totalCost).toLocaleString()}`, 172, startY + 5.5);
 
       startY += 8;
     });
@@ -132,23 +174,23 @@ export const CostAndQuotationBuilder: React.FC = () => {
 
     doc.setFont("helvetica", "bold");
     doc.text("Subtotal:", 130, startY);
-    doc.text(`$${subtotal.toLocaleString()}`, 175, startY);
+    doc.text(`${currSymbol}${Math.round(subtotal).toLocaleString()}`, 170, startY);
     startY += 6;
 
     doc.text(`Contingency (${quote.contingencyPercent}%):`, 130, startY);
-    doc.text(`$${Math.round(contingencyAmt).toLocaleString()}`, 175, startY);
+    doc.text(`${currSymbol}${Math.round(contingencyAmt).toLocaleString()}`, 170, startY);
     startY += 6;
 
     doc.text(`Engineering Margin (${quote.marginPercent}%):`, 130, startY);
-    doc.text(`$${Math.round(marginAmt).toLocaleString()}`, 175, startY);
+    doc.text(`${currSymbol}${Math.round(marginAmt).toLocaleString()}`, 170, startY);
     startY += 8;
 
     doc.setFillColor(15, 23, 42);
-    doc.rect(125, startY - 5, 71, 10, "F");
+    doc.rect(120, startY - 5, 76, 10, "F");
     doc.setTextColor(56, 189, 248);
     doc.setFontSize(11);
-    doc.text("GRAND TOTAL:", 128, startY + 2);
-    doc.text(`$${Math.round(grandTotal).toLocaleString()} ${quote.currency}`, 168, startY + 2);
+    doc.text("GRAND TOTAL:", 123, startY + 2);
+    doc.text(`${currSymbol}${Math.round(grandTotal).toLocaleString()} ${currency}`, 158, startY + 2);
 
     // Terms & Stamping
     startY += 20;
@@ -180,13 +222,34 @@ export const CostAndQuotationBuilder: React.FC = () => {
           </p>
         </div>
 
-        <button
-          onClick={exportPDFQuotation}
-          className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs font-mono flex items-center gap-2 shadow-lg shadow-cyan-500/20 transition"
-        >
-          <Download className="w-4 h-4" />
-          <span>Export Formal Quotation PDF</span>
-        </button>
+        <div className="flex items-center gap-3">
+          {/* Currency Switcher Selector */}
+          <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-700 font-mono text-xs">
+            <span className="text-[10px] text-slate-400 font-bold px-2 uppercase">Currency:</span>
+            {(["INR", "USD", "EUR", "GBP"] as const).map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => handleCurrencySwitch(c)}
+                className={`px-2.5 py-1 rounded-lg font-bold transition ${
+                  currency === c
+                    ? "bg-cyan-500 text-slate-950 shadow"
+                    : "text-slate-300 hover:text-white hover:bg-slate-800"
+                }`}
+              >
+                {c === "INR" ? "₹ INR" : c === "USD" ? "$ USD" : c === "EUR" ? "€ EUR" : "£ GBP"}
+              </button>
+            ))}
+          </div>
+
+          <button
+            onClick={exportPDFQuotation}
+            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl text-xs font-mono flex items-center gap-2 shadow-lg shadow-cyan-500/20 transition cursor-pointer"
+          >
+            <Download className="w-4 h-4" />
+            <span>Export Formal Quotation PDF</span>
+          </button>
+        </div>
       </div>
 
       {exportSuccess && (
@@ -238,7 +301,7 @@ export const CostAndQuotationBuilder: React.FC = () => {
             <input
               type="number"
               value={quote.leadTimeWeeks}
-              onChange={(e) => setQuote({ ...quote, leadTimeWeeks: parseInt(e.target.value) })}
+              onChange={(e) => setQuote({ ...quote, leadTimeWeeks: parseInt(e.target.value) || 1 })}
               className="w-full bg-slate-900 border border-slate-800 text-slate-200 p-2 rounded-lg mt-1 font-mono"
             />
           </div>
@@ -248,10 +311,12 @@ export const CostAndQuotationBuilder: React.FC = () => {
       {/* Itemized Line Items Table */}
       <div className="space-y-4">
         <div className="flex justify-between items-center">
-          <h4 className="text-sm font-bold font-mono text-slate-200">Itemized Cost Breakdown</h4>
+          <h4 className="text-sm font-bold font-mono text-slate-200">
+            Itemized Cost Breakdown ({currency} - {currSymbol})
+          </h4>
           <button
             onClick={addItem}
-            className="bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 transition"
+            className="bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 transition cursor-pointer"
           >
             <Plus className="w-3.5 h-3.5" /> Add Line Item
           </button>
@@ -265,8 +330,8 @@ export const CostAndQuotationBuilder: React.FC = () => {
                 <th className="p-3">Item Description</th>
                 <th className="p-3 w-20">Qty</th>
                 <th className="p-3 w-24">Unit</th>
-                <th className="p-3 w-32">Unit Cost ($)</th>
-                <th className="p-3 w-32 text-right">Total ($)</th>
+                <th className="p-3 w-36">Unit Cost ({currSymbol})</th>
+                <th className="p-3 w-36 text-right">Total ({currSymbol})</th>
                 <th className="p-3 w-12 text-center">Action</th>
               </tr>
             </thead>
@@ -307,12 +372,12 @@ export const CostAndQuotationBuilder: React.FC = () => {
                     />
                   </td>
                   <td className="p-3 text-right font-bold text-slate-100">
-                    ${item.totalCost.toLocaleString()}
+                    {currSymbol}{Math.round(item.totalCost).toLocaleString()}
                   </td>
                   <td className="p-3 text-center">
                     <button
                       onClick={() => deleteItem(item.id)}
-                      className="text-slate-500 hover:text-rose-400 p-1"
+                      className="text-slate-500 hover:text-rose-400 p-1 cursor-pointer"
                     >
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -342,7 +407,7 @@ export const CostAndQuotationBuilder: React.FC = () => {
               max="15"
               step="1"
               value={quote.contingencyPercent}
-              onChange={(e) => setQuote({ ...quote, contingencyPercent: parseInt(e.target.value) })}
+              onChange={(e) => setQuote({ ...quote, contingencyPercent: parseInt(e.target.value) || 0 })}
               className="w-full accent-cyan-400 bg-slate-800 h-1.5 rounded"
             />
           </div>
@@ -358,7 +423,7 @@ export const CostAndQuotationBuilder: React.FC = () => {
               max="35"
               step="1"
               value={quote.marginPercent}
-              onChange={(e) => setQuote({ ...quote, marginPercent: parseInt(e.target.value) })}
+              onChange={(e) => setQuote({ ...quote, marginPercent: parseInt(e.target.value) || 5 })}
               className="w-full accent-cyan-400 bg-slate-800 h-1.5 rounded"
             />
           </div>
@@ -369,22 +434,22 @@ export const CostAndQuotationBuilder: React.FC = () => {
           <div className="space-y-2 font-mono text-xs">
             <div className="flex justify-between text-slate-400">
               <span>Direct Material & Labor Subtotal:</span>
-              <span className="text-slate-200 font-bold">${subtotal.toLocaleString()}</span>
+              <span className="text-slate-200 font-bold">{currSymbol}{Math.round(subtotal).toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-slate-400">
               <span>Contingency ({quote.contingencyPercent}%):</span>
-              <span className="text-slate-200">${Math.round(contingencyAmt).toLocaleString()}</span>
+              <span className="text-slate-200">{currSymbol}{Math.round(contingencyAmt).toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-slate-400">
               <span>Gross Margin ({quote.marginPercent}%):</span>
-              <span className="text-slate-200">${Math.round(marginAmt).toLocaleString()}</span>
+              <span className="text-slate-200">{currSymbol}{Math.round(marginAmt).toLocaleString()}</span>
             </div>
           </div>
 
           <div className="pt-4 border-t border-slate-800 flex justify-between items-center">
             <span className="text-xs font-mono text-slate-400 font-bold uppercase">Grand Total Amount:</span>
             <span className="text-2xl font-extrabold text-cyan-400 font-mono">
-              ${Math.round(grandTotal).toLocaleString()} USD
+              {currSymbol}{Math.round(grandTotal).toLocaleString()} {currency}
             </span>
           </div>
         </div>
@@ -392,7 +457,7 @@ export const CostAndQuotationBuilder: React.FC = () => {
 
       {/* Service Layer: PDF Data Sheet & DXF CAD Exporter Component */}
       <EngineeringExportStudio
-        currentQuotation={{ ...quote, subtotal, totalAmount: grandTotal }}
+        currentQuotation={{ ...quote, subtotal, totalAmount: grandTotal, currency }}
         currentDesign={DEFAULT_DESIGN_EXAMPLE}
       />
     </div>

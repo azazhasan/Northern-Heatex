@@ -11,9 +11,9 @@ export const GalleryPage: React.FC = () => {
   const galleryCategories = [
     {
       title: "Haridwar Works Manufacturing Bay",
-      desc: "5-axis CNC deep-hole tubesheet drilling machines, automated orbital TIG welding stations, and hydraulic tube bundle pullers.",
+      desc: "High-precision CNC deep-hole tubesheet drilling machines, automated orbital TIG welding stations, and hydraulic tube bundle pullers.",
       items: [
-        { title: "5-Axis CNC Deep Hole Machine", tag: "CNC Machining", location: "Haridwar Bay 1" },
+        { title: "High-Precision CNC Deep Hole Machine", tag: "CNC Machining", location: "Haridwar Bay 1" },
         { title: "Orbital TIG Tube-to-Tubesheet Weld", tag: "TIG Welding", location: "Haridwar Bay 2" },
         { title: "Hydraulic Tube Bundle Puller", tag: "Bundle Assembly", location: "Haridwar Yard" },
       ],

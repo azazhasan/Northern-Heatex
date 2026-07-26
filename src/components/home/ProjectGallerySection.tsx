@@ -15,7 +15,7 @@ export interface GalleryItem {
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "CNC 5-Axis Tubesheet Drilling for 800mm Shell",
+    title: "High-Precision CNC Tubesheet Drilling for 800mm Shell",
     category: "Machining",
     imageUrl: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
     specs: "Material: Carbon Steel SA-516 Gr 70 • 190 Tube Holes",
@@ -47,10 +47,10 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: "gal-5",
-    title: "Centrifugal Casting White Metal Babbitt Bearing",
+    title: "White Metal Babbitt Re-Babbitting for Hydro Turbine Pads",
     category: "Machining",
     imageUrl: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
-    specs: "ASTM B23 Grade 2 Babbitt • 100% UT Bond Verification",
+    specs: "Turbine Guide Pads & Thrust Pads • 100% Bonding & Defect Free Surface",
     location: "Babbitt Bearing Bay",
   },
   {

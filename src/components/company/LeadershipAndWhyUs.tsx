@@ -85,7 +85,7 @@ export const LeadershipAndWhyUsSection: React.FC<LeadershipAndWhyUsProps> = ({
     {
       num: "07",
       title: "Full Metallurgical Traceability & NDE",
-      desc: "100% material test reports (MTRs), hydrostatic test logs, radiographic weld inspection, and helium vacuum leak certifications.",
+      desc: "100% material test reports (MTRs), hydrostatic test logs, radiographic weld inspection, and vacuum leak certifications.",
       icon: CheckCircle2,
     },
     {

@@ -17,9 +17,9 @@ export const ProjectsPage: React.FC = () => {
     {
       id: "cs-02",
       title: "Supercritical Thermal Power Surface Condenser Retubing",
-      client: "NTPC Thermal Power Station • Singrauli / Haridwar Dispatch",
+      client: "NHPC / State Thermal Power Station • Haridwar Dispatch",
       scope: "Fabrication & site deployment of 18-meter SB-338 Titanium Grade 2 tube bundle for high-vacuum steam surface condenser.",
-      stats: { duty: "85 MW", tubes: "6,200 Tubes", turnaround: "14 Days", status: "ASME Stamped" },
+      stats: { duty: "85 MW", tubes: "6,200 Tubes", turnaround: "14 Days", status: "TPI Cleared" },
       image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
     },
     {
@@ -32,10 +32,10 @@ export const ProjectsPage: React.FC = () => {
     },
     {
       id: "cs-04",
-      title: "Centrifugal Cast White Metal Journal Bearing Re-Babbitting",
-      client: "BHEL Hardwar Heavy Electrical Equipment Plant (HEEP)",
-      scope: "Emergency centrifugal casting of ASTM B23 Grade 2 tin-based babbitt lining for 600mm turbine main journal bearing with ultrasonic bond check.",
-      stats: { diameter: "600 mm", material: "Tin Babbitt", turnaround: "48 Hours", status: "Verified" },
+      title: "White Metal Bearing Re-Babbitting for Hydro Turbine Pads",
+      client: "THDC Ltd / UJVNL Hydro Power Generation Division",
+      scope: "Emergency re-babbitting of ASTM B23 Grade 2 tin-based babbitt lining for Turbine Guide pads, Upper guide pads, Lower guide pads, and Thrust Pads with 100% bonding and defect free surface.",
+      stats: { diameter: "600 mm", material: "Tin Babbitt", turnaround: "48 Hours", status: "100% Bond Verified" },
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     },
   ];
@@ -49,7 +49,7 @@ export const ProjectsPage: React.FC = () => {
         <div className="relative z-20 space-y-4 max-w-4xl">
           <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono font-bold uppercase tracking-wider">
             <FolderGit2 className="w-3.5 h-3.5 text-amber-400" />
-            5,000+ COMPLETED PROJECTS & CASE STUDIES
+            4,000+ COMPLETED PROJECTS & CASE STUDIES
           </span>
 
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white">

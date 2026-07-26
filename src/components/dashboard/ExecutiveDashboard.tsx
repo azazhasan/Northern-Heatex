@@ -25,6 +25,7 @@ import {
   AlertTriangle,
   FolderGit2,
   Share2,
+  FileText,
 } from "lucide-react";
 
 interface ExecutiveDashboardProps {
@@ -108,7 +109,8 @@ export const ExecutiveDashboard: React.FC<ExecutiveDashboardProps> = ({
   const favoriteCalculators = [
     { title: "Thermal Sizing Engine", tab: "thermal-calc" as EngineeringTab, icon: Calculator, badge: "LMTD & NTU" },
     { title: "ASME VIII Div 1 Thickness", tab: "mechanical-asme" as EngineeringTab, icon: ShieldCheck, badge: "UG-27 / UG-34" },
-    { title: "3D Tube Layout CAD", tab: "tube-layout" as EngineeringTab, icon: Grid, badge: "Interactive Pitch" },
+    { title: "Pro Fabrication Estimator", tab: "fabrication" as EngineeringTab, icon: FileSpreadsheet, badge: "Multi-Currency" },
+    { title: "Official Letterhead Studio", tab: "official-letterhead" as EngineeringTab, icon: FileText, badge: "Admin Dispatch" },
     { title: "AI Cost & Proposal Generator", tab: "cost-quotation" as EngineeringTab, icon: FileSpreadsheet, badge: "Instant Quote" },
     { title: "AI Failure Diagnostics", tab: "ai-suite" as EngineeringTab, icon: Bot, badge: "Gemini 3.6 Flash" },
   ];

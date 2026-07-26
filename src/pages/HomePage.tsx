@@ -18,17 +18,6 @@ export const HomePage: React.FC = () => {
 
         <div className="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-bold">
-                <Award className="w-3.5 h-3.5 text-amber-400" />
-                LEGACY EST. 1996 • HARIDWAR WORKS
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-bold">
-                <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                ASME SEC VIII DIV 1 & TEMA CLASS R/C/B
-              </span>
-            </div>
-
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
               Enterprise <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-200 to-amber-300">Thermal Engineering</span> Ecosystem
             </h1>

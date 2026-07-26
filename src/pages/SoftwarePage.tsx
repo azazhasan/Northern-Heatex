@@ -8,6 +8,8 @@ import { EngineeringReportsModule } from "../components/engineering/EngineeringR
 import { DrawingGeneratorModule } from "../components/engineering/DrawingGeneratorModule";
 import { BOMGeneratorModule } from "../components/engineering/BOMGeneratorModule";
 import { FabricationIndustryEstimator } from "../components/engineering/FabricationIndustryEstimator";
+import { MaterialWeightCalculator } from "../components/engineering/MaterialWeightCalculator";
+import { OfficialLetterheadStudio } from "../components/admin/OfficialLetterheadStudio";
 import { GSTBusinessToolsHub } from "../components/business/GSTBusinessToolsHub";
 import { HeatExchanger3DCanvas } from "../components/3d/HeatExchanger3DCanvas";
 import { AIFailureAnalysisModule } from "../components/engineering/AIFailureAnalysisModule";
@@ -16,7 +18,7 @@ import { TubeLayoutCanvas } from "../components/engineering/TubeLayoutCanvas";
 import { RetubingPerformanceCalculator } from "../components/engineering/RetubingPerformanceCalculator";
 import { BafflePlateDesigner } from "../components/engineering/BafflePlateDesigner";
 import { 
-  Calculator, Cpu, FileSpreadsheet, Layers, Sparkles, Download, Code, ShieldCheck, CheckCircle2, Send, FileCode, Wrench, Activity, Ruler
+  Calculator, Cpu, FileSpreadsheet, Layers, Sparkles, Download, Code, ShieldCheck, CheckCircle2, Send, FileCode, Wrench, Activity, Ruler, FileText, Scale
 } from "lucide-react";
 
 export const SoftwarePage: React.FC = () => {
@@ -29,6 +31,8 @@ export const SoftwarePage: React.FC = () => {
     { slug: "mechanical-design", label: "ASME Mechanical Studio", icon: Cpu },
     { slug: "material-selection", label: "Material Alloy Matrix", icon: Layers },
     { slug: "fab-estimator", label: "Pro Fabrication Industry Estimator", icon: FileSpreadsheet },
+    { slug: "metal-weight", label: "Metal Weight Calculator", icon: Scale },
+    { slug: "official-letterhead", label: "Official Letterhead Studio [Admin]", icon: FileText },
     { slug: "cost-estimator", label: "Cost & Quotation Builder", icon: FileSpreadsheet },
     { slug: "drawing-generator", label: "2D CAD & DXF Generator", icon: FileCode },
     { slug: "bom-generator", label: "Bill of Materials (BOM)", icon: Layers },
@@ -110,6 +114,10 @@ export const SoftwarePage: React.FC = () => {
         <BOMGeneratorModule />
       ) : subSlug === "fab-estimator" ? (
         <FabricationIndustryEstimator />
+      ) : subSlug === "metal-weight" ? (
+        <MaterialWeightCalculator />
+      ) : subSlug === "official-letterhead" || subSlug === "letterhead" ? (
+        <OfficialLetterheadStudio />
       ) : subSlug === "gst-calculator" || subSlug === "hsn-finder" || subSlug === "unit-converter" || subSlug === "scientific-calculator" || subSlug === "calculators" ? (
         <GSTBusinessToolsHub />
       ) : subSlug === "engineering-tools" ? (

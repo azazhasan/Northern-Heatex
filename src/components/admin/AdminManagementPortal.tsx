@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { ShieldAlert, TrendingUp, Building2, Layers, Cpu, FileSpreadsheet, Bot, Upload, Plus, Check } from "lucide-react";
+import { ShieldAlert, TrendingUp, Building2, Layers, Cpu, FileSpreadsheet, Bot, Upload, Plus, Check, FileText } from "lucide-react";
+import { OfficialLetterheadStudio } from "./OfficialLetterheadStudio";
 
 export const AdminManagementPortal: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<"kpi" | "crm" | "cms" | "knowledge">("kpi");
+  const [activeTab, setActiveTab] = useState<"kpi" | "crm" | "cms" | "knowledge" | "letterhead">("kpi");
   const [uploadedFileName, setUploadedFileName] = useState<string | null>(null);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,6 +67,17 @@ export const AdminManagementPortal: React.FC = () => {
             }`}
           >
             AI Standards Ingestion
+          </button>
+          <button
+            onClick={() => setActiveTab("letterhead")}
+            className={`px-3 py-1.5 rounded-lg border transition flex items-center gap-1.5 ${
+              activeTab === "letterhead"
+                ? "bg-[#0056A6] border-blue-500 text-white font-bold"
+                : "bg-slate-950 border-slate-800 text-cyan-400 hover:text-white"
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>Official Letterhead</span>
           </button>
         </div>
       </div>
@@ -218,6 +230,8 @@ export const AdminManagementPortal: React.FC = () => {
           </div>
         </div>
       )}
+
+      {activeTab === "letterhead" && <OfficialLetterheadStudio />}
     </div>
   );
 };

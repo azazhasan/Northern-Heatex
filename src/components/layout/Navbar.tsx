@@ -191,6 +191,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           title: "GST & Commercial Tools",
           links: [
             { label: "Indian GST Calculator (18%)", path: "/software/gst-calculator" },
+            { label: "Metal Weight Calculator", path: "/software/metal-weight" },
+            { label: "Official Letterhead Studio [Admin]", path: "/software/official-letterhead" },
             { label: "HSN 8419 Code Finder", path: "/software/hsn-finder" },
             { label: "Multi-Unit Converter", path: "/software/unit-converter" },
             { label: "3D Digital Twin Inspector", path: "/software/digital-twin" },

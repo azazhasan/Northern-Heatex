@@ -33,6 +33,7 @@ import {
   UnitCategoryKey,
 } from "../common/FloatingUnitConverter";
 import { MaterialWeightCalculator } from "../engineering/MaterialWeightCalculator";
+import { OfficialLetterheadStudio } from "../admin/OfficialLetterheadStudio";
 
 // HSN Code Interface
 export interface HSNRecord {
@@ -150,7 +151,7 @@ export const INITIAL_HSN_DATABASE: HSNRecord[] = [
 
 export const GSTBusinessToolsHub: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<
-    "gst-calc" | "hsn-finder" | "engineering-calc" | "unit-converter" | "currency" | "profit-calc" | "invoice-gen" | "weight-calc"
+    "gst-calc" | "hsn-finder" | "engineering-calc" | "unit-converter" | "currency" | "profit-calc" | "invoice-gen" | "weight-calc" | "letterhead-studio"
   >("gst-calc");
 
   // --- MODULE 1: GST CALCULATOR STATE ---
@@ -560,6 +561,7 @@ export const GSTBusinessToolsHub: React.FC = () => {
           {[
             { id: "gst-calc", label: "GST Calculator", icon: Calculator },
             { id: "weight-calc", label: "Metal Weight & Price", icon: Scale },
+            { id: "letterhead-studio", label: "Official Letterhead", icon: FileText },
             { id: "hsn-finder", label: "HSN Code Database", icon: Search },
             { id: "profit-calc", label: "Profit & Margin", icon: TrendingUp },
             { id: "invoice-gen", label: "GST Invoice Generator", icon: FileText },
@@ -803,6 +805,11 @@ export const GSTBusinessToolsHub: React.FC = () => {
       {/* SUB-TAB 1.5: METAL WEIGHT & COMMERCIAL PRICE CALCULATOR */}
       {activeSubTab === "weight-calc" && (
         <MaterialWeightCalculator />
+      )}
+
+      {/* SUB-TAB 1.6: OFFICIAL LETTERHEAD STUDIO */}
+      {activeSubTab === "letterhead-studio" && (
+        <OfficialLetterheadStudio />
       )}
 
       {/* SUB-TAB 2: HSN CODE DATABASE & SMART SEARCH */}

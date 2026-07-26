@@ -33,7 +33,9 @@ export type EngineeringTab =
   | "tube-layout"
   | "customer-portal"
   | "admin-portal"
-  | "gst-center";
+  | "gst-center"
+  | "official-letterhead"
+  | "letterhead";
 
 export type TEMAType =
   | "BEM" // Fixed tubesheet, single pass shell
